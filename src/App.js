@@ -45,16 +45,16 @@ function App() {
     newListItemToPurchase[ListItemToPurchaseIndex].added = true;
     newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss + 1;
     setListItemToPurchase(newListItemToPurchase);
-    
-    
-  
-      
-    
-      // ListItemToPurchase [ListItemToPurchaseIndex] ={
-      //   text: ListItemToPurchase[ListItemToPurchaseIndex].itemtext,
-      //   added: true,
-      // }
-
+  }
+  const deductItemToPurchase = (text) =>{
+    // texto
+    const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
+    const newListItemToPurchase = [...ListItemToPurchase];
+    const intPluss = newListItemToPurchase[ListItemToPurchaseIndex].startCounter;
+    console.log(intPluss);
+    newListItemToPurchase[ListItemToPurchaseIndex].added = true;
+    newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss + 1;
+    setListItemToPurchase(newListItemToPurchase);
   }
 
   
