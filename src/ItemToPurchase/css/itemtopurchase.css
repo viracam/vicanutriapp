@@ -1,0 +1,37 @@
+.ItemToPurchase{
+    background: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.ItemToPurchase p, .ItemToPurchase figure {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.ItemToPurchase button{
+    background-color: brown;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+}
+.ItemToPurchase .Nutributton{
+    justify-self: start;
+}
+.ItemToPurchase .Purchasebutton{
+    justify-self: end;
+}
+.ItemToPurchase .Purchasebutton span{
+    display: block;
+    background-color: red;
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+}
+.ItemToPurchase .Purchasebutton span.Icon-PlussItem-active{
+    background-color: blue;
+
+}
