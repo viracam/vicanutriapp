@@ -10,7 +10,10 @@ function ItemToPurchase(props){
     return (
        
             <article className="ItemToPurchase">
-                <span className="Icon-Delete"> x</span>
+                <span
+                    className="Icon-Delete"
+                    onClick={props.onDelete}
+                > x</span>
                 <p>{props.text}</p>
                 <p>COP ${props.price}</p>
                 <figure>
