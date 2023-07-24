@@ -42,9 +42,15 @@ function App() {
     const newListItemToPurchase = [...ListItemToPurchase];
     const intPluss = newListItemToPurchase[ListItemToPurchaseIndex].startCounter;
     console.log(intPluss);
-    newListItemToPurchase[ListItemToPurchaseIndex].added = true;
-    newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss + 1;
-    setListItemToPurchase(newListItemToPurchase);
+    
+    if(intPluss >= 0){
+      newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss + 1;
+      newListItemToPurchase[ListItemToPurchaseIndex].added = true;
+      setListItemToPurchase(newListItemToPurchase);
+    }
+    
+    
+    
   }
   const deductListItemToPurchase = (text) =>{
     const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
@@ -52,11 +58,26 @@ function App() {
     const intPluss = newListItemToPurchase[ListItemToPurchaseIndex].startCounter;
     console.log(intPluss);
     
-    newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss - 1;
-    if(intPluss === 0){
-      newListItemToPurchase[ListItemToPurchaseIndex].added = false;
+  
+    if(intPluss >= 0){
+      if(intPluss === 0){
+        newListItemToPurchase[ListItemToPurchaseIndex].added = false;
+      }
+      newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss - 1;
+      setListItemToPurchase(newListItemToPurchase);
+
+      
+      
     }
-    setListItemToPurchase(newListItemToPurchase);
+    
+    if(intPluss === 0){
+      newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss * 0;
+      alert('Ya quitaste este articulo');
+      
+    }
+    
+    
+    
 
   }
   const deleItemToPurchase = (text) =>{
