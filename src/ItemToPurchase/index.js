@@ -2,11 +2,7 @@ import React from "react";
 import './css/itemtopurchase.css'
 
 function ItemToPurchase(props){
- 
-    const onRemove = () =>{
-        alert('ya quitaste ' + props.text);
-         
-    }
+
     return (
        
             <article className="ItemToPurchase">
@@ -25,7 +21,7 @@ function ItemToPurchase(props){
                 <div className="Purchasebutton">
                     <span
                         className={`Icon Icon-LessItem ${props.added && 'Icon-LessItem-active'}`}
-                        onClick={onRemove}
+                        onClick={props.onDeduct}
                     >-</span>
                     <p>
                     {

@@ -46,6 +46,19 @@ function App() {
     newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss + 1;
     setListItemToPurchase(newListItemToPurchase);
   }
+  const deductListItemToPurchase = (text) =>{
+    const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
+    const newListItemToPurchase = [...ListItemToPurchase];
+    const intPluss = newListItemToPurchase[ListItemToPurchaseIndex].startCounter;
+    console.log(intPluss);
+    
+    newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss - 1;
+    if(intPluss === 0){
+      newListItemToPurchase[ListItemToPurchaseIndex].added = false;
+    }
+    setListItemToPurchase(newListItemToPurchase);
+
+  }
   const deleItemToPurchase = (text) =>{
     // texto
     const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
@@ -76,6 +89,7 @@ function App() {
             nutritionfacts={item.nutritionfacts}
             added={item.added}
             onAdded={() => addListItemToPurchase(item.itemtext)}
+            onDeduct={() => deductListItemToPurchase(item.itemtext)}
             onDelete={() => deleItemToPurchase(item.itemtext)}
             defaultNumberOfItemsAdded= {item.startCounter}
           />
