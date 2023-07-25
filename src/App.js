@@ -35,7 +35,6 @@ function App() {
       return itemToPurchaseText.includes(searchText);
     })
   }
-
   const addListItemToPurchase = (text) =>{
     // texto
     const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
@@ -52,33 +51,30 @@ function App() {
     
     
   }
+      
   const deductListItemToPurchase = (text) =>{
     const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
     const newListItemToPurchase = [...ListItemToPurchase];
     const intPluss = newListItemToPurchase[ListItemToPurchaseIndex].startCounter;
     console.log(intPluss);
+
+  
+    if(intPluss >= 2){
+      newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss - 1;
+
+
+      setListItemToPurchase(newListItemToPurchase);  
+      
+    }
+    else{
+      newListItemToPurchase[ListItemToPurchaseIndex].added = false;
+      newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss * 0;
+      
+      setListItemToPurchase(newListItemToPurchase);
+      alert( 'El elemento ' + newListItemToPurchase[ListItemToPurchaseIndex].itemtext + ' se ha quitado' );
+    }
     
   
-    if(intPluss >= 0){
-      if(intPluss === 0){
-        newListItemToPurchase[ListItemToPurchaseIndex].added = false;
-      }
-      newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss - 1;
-      setListItemToPurchase(newListItemToPurchase);
-
-      
-      
-    }
-    
-    if(intPluss === 0){
-      newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss * 0;
-      alert('Ya quitaste este articulo');
-      
-    }
-    
-    
-    
-
   }
   const deleItemToPurchase = (text) =>{
     // texto
