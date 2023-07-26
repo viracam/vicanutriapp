@@ -1,11 +1,7 @@
 
 import React from 'react';
-import {ListCounter} from './ListCounter';
-import {ListItemstoAdd} from './ListItemstoAdd';
-import {ItemToPurchase} from './ItemToPurchase';
-import {ListSearch} from './ListSearch';
-import {SellerButtonAddItemToPurchase} from './SellerButtonAddItemToPurchase';
-//import './App.css';
+
+import { AppUi } from './AppUi';
 
 const defaultListItemToPurchase = [
   {itemtext : 'Zanahoria', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : true, startCounter: 1},
@@ -83,40 +79,20 @@ function App() {
     newListItemToPurchase.splice(ListItemToPurchaseIndex, 1);
     setListItemToPurchase(newListItemToPurchase);
   }
-
-  
-  return (
-    <React.Fragment>
-      <ListCounter
-        total={totalListItemToPurchase}
-        added={addedListItemToPurchase}
-      />
-      
-      <ListSearch
-        searchValue={searchValue}
-        setStateSearch={setStateSearch}
-      />
-      <ListItemstoAdd>
-        {searchedListItemToPurchase.map(item =>(
-          <ItemToPurchase
-            key={item.itemtext}
-            text={item.itemtext}
-            photo={item.photo}
-            price={item.price}
-            nutritionfacts={item.nutritionfacts}
-            added={item.added}
-            onAdded={() => addListItemToPurchase(item.itemtext)}
-            onDeduct={() => deductListItemToPurchase(item.itemtext)}
-            onDelete={() => deleItemToPurchase(item.itemtext)}
-            defaultNumberOfItemsAdded= {item.startCounter}
-          />
-        ) )}
-      </ListItemstoAdd>
-      <SellerButtonAddItemToPurchase/>
-      
-    </React.Fragment>
-    
+  return(
+    <AppUi
+    totalListItemToPurchase={totalListItemToPurchase}
+    addedListItemToPurchase={addedListItemToPurchase}
+    searchValue={searchValue}
+    setStateSearch={setStateSearch}
+    searchedListItemToPurchase={searchedListItemToPurchase}
+    addListItemToPurchase={addListItemToPurchase}
+    deductListItemToPurchase={deductListItemToPurchase}
+    deleItemToPurchase={deleItemToPurchase}
+    />
   );
+  
+
 }
 
 export default App;
