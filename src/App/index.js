@@ -3,11 +3,11 @@ import React from 'react';
 
 import { AppUi } from './AppUi';
 
-// const defaultListItemToPurchase = [
-//   {itemtext : 'Zanahoria', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : true, startCounter: 1},
-//   {itemtext : 'Banano', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : false, startCounter: 0},
-//   {itemtext : 'Platano', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : false, startCounter: 0}
-// ]
+const defaultListItemToPurchase = [
+  {itemtext : 'Zanahoria', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : true, startCounter: 1},
+  {itemtext : 'Banano', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : false, startCounter: 0},
+  {itemtext : 'Platano', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : false, startCounter: 0}
+]
 
 
 function App() {
@@ -26,6 +26,11 @@ function App() {
   const[ListItemToPurchase, setListItemToPurchase] = React.useState(defaultListItemToPurchase);
   const [searchValue, setStateSearch] = React.useState('');
   
+  const saveListItemToPurchase = (newListItemToPurchase) =>{
+    const stringifyListItemToPurchase = JSON.stringify(newListItemToPurchase);
+    localStorage.setItem('LISTTOPURCHASE_V1', stringifyListItemToPurchase);
+    setListItemToPurchase(newListItemToPurchase);
+  }
   
 
   const addedListItemToPurchase = ListItemToPurchase.filter(item => !!item.added).length;
@@ -52,7 +57,7 @@ function App() {
     if(intPluss >= 0){
       newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss + 1;
       newListItemToPurchase[ListItemToPurchaseIndex].added = true;
-      setListItemToPurchase(newListItemToPurchase);
+      saveListItemToPurchase(newListItemToPurchase);
     }
     
     
@@ -70,14 +75,14 @@ function App() {
       newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss - 1;
 
 
-      setListItemToPurchase(newListItemToPurchase);  
+      saveListItemToPurchase(newListItemToPurchase);  
       
     }
     else{
       newListItemToPurchase[ListItemToPurchaseIndex].added = false;
       newListItemToPurchase[ListItemToPurchaseIndex].startCounter = intPluss * 0;
       
-      setListItemToPurchase(newListItemToPurchase);
+      saveListItemToPurchase(newListItemToPurchase);
       alert( 'El elemento ' + newListItemToPurchase[ListItemToPurchaseIndex].itemtext + ' se ha quitado' );
     }
     
@@ -88,7 +93,7 @@ function App() {
     const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
     const newListItemToPurchase = [...ListItemToPurchase];
     newListItemToPurchase.splice(ListItemToPurchaseIndex, 1);
-    setListItemToPurchase(newListItemToPurchase);
+    saveListItemToPurchase(newListItemToPurchase);
   }
   return(
     <AppUi
