@@ -8,29 +8,40 @@ import { AppUi } from './AppUi';
 //   {itemtext : 'Banano', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : false, startCounter: 0},
 //   {itemtext : 'Platano', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : false, startCounter: 0}
 // ];
+function useLocalStorage(itemName, initialValue){
 
+  const localStorageListItem = localStorage.getItem(itemName);
+  let parsedListItem;
+  
+  if(!localStorageListItem){
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedListItem = initialValue;
+  }else{
+    parsedListItem = JSON.parse(localStorageListItem);
+
+  }
+  const[Listitem, setListItem] = React.useState(parsedListItem);
+
+  /// save ToDos
+  const saveListItem = (newListItem) =>{
+    const stringifyListItem = JSON.stringify(newListItem);
+    localStorage.setItem(itemName, stringifyListItem);
+    setListItem(newListItem);
+  }
+  return[
+    Listitem,
+    saveListItem,
+  ];
+
+}
 
 function App() {
-  const localStorageList = localStorage.getItem('LISTTOPURCHASE_V1');
-  let parsedList;
-
-  if(!localStorageList){
-    localStorage.setItem('LISTTOPURCHASE_V1', JSON.stringify([]));
-    parsedList = [];
-
-  }else{
-    parsedList = JSON.parse(localStorageList);
-
-  }
+  const [ListItemToPurchase, saveListItemToPurchase] = useLocalStorage('LISTTOPURCHASE_V1', []);
   
-  const[ListItemToPurchase, setListItemToPurchase] = React.useState(parsedList);
+
   const [searchValue, setStateSearch] = React.useState('');
   
-  const saveListItemToPurchase = (newListItemToPurchase) =>{
-    const stringifyListItemToPurchase = JSON.stringify(newListItemToPurchase);
-    localStorage.setItem('LISTTOPURCHASE_V1', stringifyListItemToPurchase);
-    setListItemToPurchase(newListItemToPurchase);
-  }
+  
   
 
   const addedListItemToPurchase = ListItemToPurchase.filter(item => !!item.added).length;
