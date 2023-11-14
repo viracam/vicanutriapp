@@ -3,11 +3,11 @@ import React from 'react';
 
 import { AppUi } from './AppUi';
 
-const defaultListItemToPurchase = [
-  {itemtext : 'Zanahoria', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : true, startCounter: 1},
-  {itemtext : 'Banano', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : false, startCounter: 0},
-  {itemtext : 'Platano', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : false, startCounter: 0}
-];
+// const defaultListItemToPurchase = [
+//   {itemtext : 'Zanahoria', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : true, startCounter: 1},
+//   {itemtext : 'Banano', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : false, startCounter: 0},
+//   {itemtext : 'Platano', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : false, startCounter: 0}
+// ];
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
 
   }
   
-  const[ListItemToPurchase, setListItemToPurchase] = React.useState(defaultListItemToPurchase);
+  const[ListItemToPurchase, setListItemToPurchase] = React.useState(parsedList);
   const [searchValue, setStateSearch] = React.useState('');
   
   const saveListItemToPurchase = (newListItemToPurchase) =>{
