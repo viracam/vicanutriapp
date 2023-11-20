@@ -6,7 +6,8 @@ import {ListSearch} from '../ListSearch';
 import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
 
  function AppUi({
-
+    loading,
+    error,
     totalListItemToPurchase,
     addedListItemToPurchase,
     searchValue,
@@ -28,6 +29,10 @@ import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
           setStateSearch={setStateSearch}
         />
         <ListItemstoAdd>
+            {error && <p>Estamos errando..</p>}
+            {loading && <p>Estamos cargando..</p>}
+            {(!loading && !searchedListItemToPurchase.length) && <p>crea to primer alimento</p>}
+
           {searchedListItemToPurchase.map(item =>(
             <ItemToPurchase
               key={item.itemtext}

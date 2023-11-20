@@ -9,18 +9,27 @@ import { AppUi } from './AppUi';
 //   {itemtext : 'Platano', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : false, startCounter: 0}
 // ];
 function useLocalStorage(itemName, initialValue){
+  const[loading, setLoading] = React.useState(true);
+  const[Listitem, setListItem] = React.useState(initialValue);
 
-  const localStorageListItem = localStorage.getItem(itemName);
-  let parsedListItem;
+  React.useEffect(()=> {
+    setTimeout(()=>{
+      const localStorageListItem = localStorage.getItem(itemName);
+      let parsedListItem;
+      
+      if(!localStorageListItem){
+        localStorage.setItem(itemName, JSON.stringify(initialValue));
+        parsedListItem = initialValue;
+      }else{
+        parsedListItem = JSON.parse(localStorageListItem);
+    
+      }
+      setListItem(parsedListItem);
+      setLoading(false);
+    },3000);
+  });
+
   
-  if(!localStorageListItem){
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedListItem = initialValue;
-  }else{
-    parsedListItem = JSON.parse(localStorageListItem);
-
-  }
-  const[Listitem, setListItem] = React.useState(parsedListItem);
 
   /// save ToDos
   const saveListItem = (newListItem) =>{
@@ -28,15 +37,22 @@ function useLocalStorage(itemName, initialValue){
     localStorage.setItem(itemName, stringifyListItem);
     setListItem(newListItem);
   }
-  return[
+  return{
     Listitem,
     saveListItem,
-  ];
+    loading,
+  };
 
 }
 
 function App() {
-  const [ListItemToPurchase, saveListItemToPurchase] = useLocalStorage('LISTTOPURCHASE_V1', []);
+
+
+  const {
+    Listitem: ListItemToPurchase,
+    saveListItem: saveListItemToPurchase,
+    loading,
+  } = useLocalStorage('LISTTOPURCHASE_V1', []);
   
 
   const [searchValue, setStateSearch] = React.useState('');
@@ -98,16 +114,25 @@ function App() {
     }
     
   
-  }
+  };
   const deleItemToPurchase = (text) =>{
     // texto
     const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
     const newListItemToPurchase = [...ListItemToPurchase];
     newListItemToPurchase.splice(ListItemToPurchaseIndex, 1);
     saveListItemToPurchase(newListItemToPurchase);
-  }
+  };
+
+  // console.log('Render antes del use');
+
+  // React.useEffect(()=>{
+  //   console.log('use effect')
+  // }, [totalListItemToPurchase]);
+  // console.log('Render despues del use');
+
   return(
     <AppUi
+    loading={loading}
     totalListItemToPurchase={totalListItemToPurchase}
     addedListItemToPurchase={addedListItemToPurchase}
     searchValue={searchValue}
