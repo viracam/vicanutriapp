@@ -9,23 +9,29 @@ import { AppUi } from './AppUi';
 //   {itemtext : 'Platano', price: '200', photo: 'La foto', nutritionfacts: 'ver nutricion', added : false, startCounter: 0}
 // ];
 function useLocalStorage(itemName, initialValue){
+  const[error, setError] = React.useState(false);
   const[loading, setLoading] = React.useState(true);
   const[Listitem, setListItem] = React.useState(initialValue);
 
   React.useEffect(()=> {
     setTimeout(()=>{
-      const localStorageListItem = localStorage.getItem(itemName);
-      let parsedListItem;
+      try{
+        const localStorageListItem = localStorage.getItem(itemName);
+        let parsedListItem;
+        
+        if(!localStorageListItem){
+          localStorage.setItem(itemName, JSON.stringify(initialValue));
+          parsedListItem = initialValue;
+        }else{
+          parsedListItem = JSON.parse(localStorageListItem);
       
-      if(!localStorageListItem){
-        localStorage.setItem(itemName, JSON.stringify(initialValue));
-        parsedListItem = initialValue;
-      }else{
-        parsedListItem = JSON.parse(localStorageListItem);
-    
+        }
+        setListItem(parsedListItem);
+        setLoading(false);
+      } catch(error){
+        setError(error);
+
       }
-      setListItem(parsedListItem);
-      setLoading(false);
     },3000);
   });
 
@@ -33,14 +39,19 @@ function useLocalStorage(itemName, initialValue){
 
   /// save ToDos
   const saveListItem = (newListItem) =>{
-    const stringifyListItem = JSON.stringify(newListItem);
-    localStorage.setItem(itemName, stringifyListItem);
-    setListItem(newListItem);
+    try{
+      const stringifyListItem = JSON.stringify(newListItem);
+      localStorage.setItem(itemName, stringifyListItem);
+      setListItem(newListItem);
+    }catch(error){
+      setError(error);
+    }
   }
   return{
     Listitem,
     saveListItem,
     loading,
+    error,
   };
 
 }
@@ -52,6 +63,7 @@ function App() {
     Listitem: ListItemToPurchase,
     saveListItem: saveListItemToPurchase,
     loading,
+    error,
   } = useLocalStorage('LISTTOPURCHASE_V1', []);
   
 
@@ -133,6 +145,7 @@ function App() {
   return(
     <AppUi
     loading={loading}
+    error={error}
     totalListItemToPurchase={totalListItemToPurchase}
     addedListItemToPurchase={addedListItemToPurchase}
     searchValue={searchValue}
