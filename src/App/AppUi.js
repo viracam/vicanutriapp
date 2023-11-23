@@ -21,7 +21,8 @@ import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
             searchedListItemToPurchase,
             addListItemToPurchase,
             deleItemToPurchase,
-            deductListItemToPurchase
+            deductListItemToPurchase,
+            defaultNumberOfItemsAdded
           }) =>(
             <ListItemstoAdd>
             {error && <p>Estamos errando..</p>}
