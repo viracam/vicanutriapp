@@ -5,6 +5,10 @@ import {ListItemstoAdd} from '../ListItemstoAdd';
 import {ItemToPurchase} from '../ItemToPurchase';
 import {ListSearch} from '../ListSearch';
 import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
+import { MyModal } from "../Modal";
+import { createPortal } from "react-dom";
+
+
 
  function AppUi(){
     const {
@@ -45,6 +49,14 @@ import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
         </ListItemstoAdd>
         
         <SellerButtonAddItemToPurchase/>
+        <MyModal>
+          {createPortal(
+            <p>tele trasportacion, recordar que se pueden poner elementos del arreglo usando los corchetes,
+              {searchedListItemToPurchase[0]?.itemtext}
+              </p>,
+            document.getElementById('modal')
+          )}
+        </MyModal>
         
       </React.Fragment>
     );
