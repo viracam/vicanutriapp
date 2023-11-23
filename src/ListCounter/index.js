@@ -1,9 +1,12 @@
 import React from "react";
+import { ListContext } from "../ListContext";
 import './css/listcounter.css';
-function ListCounter({added}){
+function ListCounter(){
+
+    const {addedListItemToPurchase } = React.useContext(ListContext);
     
     return (
-        <h2 className="ListCounter">Se ha agregado {added} elementos al carrito</h2>
+        <h2 className="ListCounter">Se ha agregado {addedListItemToPurchase} elementos al carrito</h2>
     );
 }
 export {ListCounter};

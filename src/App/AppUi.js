@@ -7,6 +7,14 @@ import {ListSearch} from '../ListSearch';
 import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
 
  function AppUi(){
+    const {
+      error,
+      loading,
+      searchedListItemToPurchase,
+      addListItemToPurchase,
+      deleItemToPurchase,
+      deductListItemToPurchase
+    } = React.useContext(ListContext);
     return(
         <React.Fragment>
         <ListCounter
@@ -14,16 +22,7 @@ import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
         
         <ListSearch
         />
-        <ListContext.Consumer>
-          {({
-            error,
-            loading,
-            searchedListItemToPurchase,
-            addListItemToPurchase,
-            deleItemToPurchase,
-            deductListItemToPurchase,
-            defaultNumberOfItemsAdded
-          }) =>(
+
             <ListItemstoAdd>
             {error && <p>Estamos errando..</p>}
             {loading && <p>Estamos cargando..</p>}
@@ -44,8 +43,7 @@ import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
             />
           ) )}
         </ListItemstoAdd>
-          )}
-        </ListContext.Consumer>
+        
         <SellerButtonAddItemToPurchase/>
         
       </React.Fragment>
