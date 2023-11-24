@@ -1,13 +1,13 @@
 import {createPortal} from 'react-dom';
 import './ModalStyle.css'
 
+
+
 function MyModal( {children}) {
-  return createPortal(
+  return (
     <div className='BackgroungModal'>
         {children}
-
-    </div>,
-    document.getElementById('modal')
+    </div>
   );
 }
-export {MyModal}
+export {MyModal, createPortal}

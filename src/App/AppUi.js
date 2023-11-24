@@ -5,8 +5,9 @@ import {ListItemstoAdd} from '../ListItemstoAdd';
 import {ItemToPurchase} from '../ItemToPurchase';
 import {ListSearch} from '../ListSearch';
 import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
-import { MyModal } from "../Modal";
-import { createPortal } from "react-dom";
+import { MyModal, createPortal } from "../Modal";
+
+
 
 
 
@@ -49,14 +50,15 @@ import { createPortal } from "react-dom";
         </ListItemstoAdd>
         
         <SellerButtonAddItemToPurchase/>
-        <MyModal>
-          {createPortal(
+        
+          {MyModal(createPortal(
             <p>tele trasportacion, recordar que se pueden poner elementos del arreglo usando los corchetes,
               {searchedListItemToPurchase[0]?.itemtext}
               </p>,
-            document.getElementById('modal')
+          document.getElementById('modal'))
+          
           )}
-        </MyModal>
+
         
       </React.Fragment>
     );
