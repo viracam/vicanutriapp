@@ -18,7 +18,9 @@ import { MyModal, createPortal } from "../Modal";
       searchedListItemToPurchase,
       addListItemToPurchase,
       deleItemToPurchase,
-      deductListItemToPurchase
+      deductListItemToPurchase,
+      openModal,
+      setOpenModal
     } = React.useContext(ListContext);
     return(
         <React.Fragment>
@@ -49,15 +51,18 @@ import { MyModal, createPortal } from "../Modal";
           ) )}
         </ListItemstoAdd>
         
-        <SellerButtonAddItemToPurchase/>
         
-          {MyModal(createPortal(
+        
+         {!!openModal &&  MyModal(createPortal(
             <p>tele trasportacion, recordar que se pueden poner elementos del arreglo usando los corchetes,
               {searchedListItemToPurchase[0]?.itemtext}
               </p>,
           document.getElementById('modal'))
           
           )}
+          <SellerButtonAddItemToPurchase
+            setOpenModal={setOpenModal}
+          />
 
         
       </React.Fragment>

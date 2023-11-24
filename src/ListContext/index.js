@@ -13,6 +13,7 @@ function ListProvider(props){
       
     
       const [searchValue, setStateSearch] = React.useState('');
+      const [openModal, setOpenModal] = React.useState(false)
       
       
       
@@ -92,6 +93,8 @@ function ListProvider(props){
             addListItemToPurchase,
             deductListItemToPurchase,
             deleItemToPurchase,
+            openModal,
+            setOpenModal
 
         }}>
             {props.children}
