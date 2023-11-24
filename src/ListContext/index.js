@@ -48,6 +48,7 @@ function ListProvider(props){
         
         
       }
+      
           
       const deductListItemToPurchase = (text) =>{
         const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
@@ -74,6 +75,13 @@ function ListProvider(props){
       
       };
       const deleItemToPurchase = (text) =>{
+        // texto
+        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
+        const newListItemToPurchase = [...ListItemToPurchase];
+        newListItemToPurchase.splice(ListItemToPurchaseIndex, 1);
+        saveListItemToPurchase(newListItemToPurchase);
+      };
+      const createItemToPurchase = (text) =>{
         // texto
         const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
         const newListItemToPurchase = [...ListItemToPurchase];

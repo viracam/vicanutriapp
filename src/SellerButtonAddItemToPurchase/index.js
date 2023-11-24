@@ -3,7 +3,7 @@ import './css/sellerbuttonadditem.css'
 
 function SellerButtonAddItemToPurchase(props){
     const onClickButton =() => {
-        props.setOpenModal(true)
+        props.setOpenModal(preState => !preState);
     }
     return (
         <button
