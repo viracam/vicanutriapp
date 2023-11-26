@@ -83,9 +83,16 @@ function ListProvider(props){
       };
       const createItemToPurchase = (text) =>{
         // texto
-        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
         const newListItemToPurchase = [...ListItemToPurchase];
-        newListItemToPurchase.splice(ListItemToPurchaseIndex, 1);
+        newListItemToPurchase.push({
+
+            text,
+            price: '200',
+            photo: 'La foto',
+            added : false,
+            startCounter: 0,
+            defaultNumberOfItemsAdded: 0
+        });
         saveListItemToPurchase(newListItemToPurchase);
       };
 
@@ -102,7 +109,8 @@ function ListProvider(props){
             deductListItemToPurchase,
             deleItemToPurchase,
             openModal,
-            setOpenModal
+            setOpenModal,
+            createItemToPurchase
 
         }}>
             {props.children}
