@@ -5,9 +5,7 @@ import {ListItemstoAdd} from '../ListItemstoAdd';
 import {ItemToPurchase} from '../ItemToPurchase';
 import {ListSearch} from '../ListSearch';
 import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
-import { MyModal
-  // , createPortal 
-} from "../Modal";
+import { MyModal, createPortal } from "../Modal";
 import { ListFrom } from "../ListForm";
 
 
@@ -22,7 +20,7 @@ import { ListFrom } from "../ListForm";
       addListItemToPurchase,
       deleItemToPurchase,
       deductListItemToPurchase,
-      // openModal,
+      openModal,
       setOpenModal
     } = React.useContext(ListContext);
     return(
@@ -55,9 +53,11 @@ import { ListFrom } from "../ListForm";
         </ListItemstoAdd>
         
         
-        <MyModal>
-          <ListFrom></ListFrom>
-        </MyModal>
+      
+        {!!openModal &&  MyModal(createPortal(
+          <ListFrom></ListFrom>,
+          document.getElementById('modal')))}
+        
          {/* {!!openModal &&  MyModal(createPortal(
             <p>tele trasportacion, recordar que se pueden poner elementos del arreglo usando los corchetes,
               {searchedListItemToPurchase[0]?.itemtext}
