@@ -32,9 +32,9 @@ function ListProvider(props){
           return itemToPurchaseText.includes(searchText);
         })
       }
-      const addListItemToPurchase = (text) =>{
+      const addListItemToPurchase = (id) =>{
         // texto
-        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
+        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.iditem === id );
         const newListItemToPurchase = [...ListItemToPurchase];
         const intPluss = newListItemToPurchase[ListItemToPurchaseIndex].startCounter;
         console.log(intPluss);
@@ -50,8 +50,8 @@ function ListProvider(props){
       }
       
           
-      const deductListItemToPurchase = (text) =>{
-        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
+      const deductListItemToPurchase = (id) =>{
+        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.iditem === id );
         const newListItemToPurchase = [...ListItemToPurchase];
         const intPluss = newListItemToPurchase[ListItemToPurchaseIndex].startCounter;
         console.log(intPluss);
@@ -74,25 +74,29 @@ function ListProvider(props){
         
       
       };
-      const deleItemToPurchase = (text) =>{
+      const deleItemToPurchase = (id) =>{
         // texto
-        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
+        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.iditem === id );
         const newListItemToPurchase = [...ListItemToPurchase];
         newListItemToPurchase.splice(ListItemToPurchaseIndex, 1);
         saveListItemToPurchase(newListItemToPurchase);
       };
-      const createItemToPurchase = (text) =>{
+      const createItemToPurchase = (id, itemtext, price) =>{
         // texto
-        const newListItemToPurchase = [...ListItemToPurchase];
+        const ListItemToPurchaseIndex = ListItemToPurchase.lastOfIndex(item => item.iditem === id );
+        const newListItemToPurchase = [...ListItemToPurchase]; 
+        const idcounter = newListItemToPurchase[ListItemToPurchaseIndex].iditem;
+        const idincrement = idcounter + 1; 
+        
         newListItemToPurchase.push({
-
-            text,
-            price: '200',
-            photo: 'La foto',
-            added : false,
-            startCounter: 0,
-            defaultNumberOfItemsAdded: 0
-        });
+          iditem: idincrement,
+          itemtext,
+          price,
+          photo: 'La foto',
+          added : false,
+          startCounter: 0,
+          defaultNumberOfItemsAdded: 0
+      });
         saveListItemToPurchase(newListItemToPurchase);
       };
 

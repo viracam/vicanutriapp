@@ -3,22 +3,27 @@ import { ListContext } from "../ListContext";
 
 function ListFrom(){
     const [newListValue, setNewListValue] = React.useState()
+    const [newListValue2, setNewListValue2] = React.useState()
+    
 
     const{
-        added,
+        createItemToPurchase,
 
     } = React.useContext(ListContext)
 
     const onChange = (event) =>{
-        setNewListValue(event.target.value)
+        setNewListValue || setNewListValue2(event.target.value)
+       
 
     }
+    
+
     const onCancel = () =>{
 
     }
     const onSubmit = (event) =>{
         event.preventDefault();
-        added(newListValue);
+        createItemToPurchase(newListValue, newListValue2);
         
     }
 
@@ -31,7 +36,12 @@ function ListFrom(){
                 value={newListValue}
             ></input>
             <label>Añade el valor</label>
-            <input placeholder="$200 o $300"></input>
+            <input
+                placeholder="$200 o $300"
+                onChange={onChange}
+                value={newListValue2}
+
+            ></input>
             <div>
                 <button
                     type="button"
