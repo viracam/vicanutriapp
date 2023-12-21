@@ -81,15 +81,27 @@ function ListProvider(props){
         newListItemToPurchase.splice(ListItemToPurchaseIndex, 1);
         saveListItemToPurchase(newListItemToPurchase);
       };
-      const createItemToPurchase = (id, itemtext, price) =>{
+      const createItemToPurchase = (itemtext, price) =>{
         // texto
-        const ListItemToPurchaseIndex = ListItemToPurchase.lastOfIndex(item => item.iditem === id );
+       // const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.iditem === id );
         const newListItemToPurchase = [...ListItemToPurchase]; 
-        const idcounter = newListItemToPurchase[ListItemToPurchaseIndex].iditem;
-        const idincrement = idcounter + 1; 
+        const idcounter = newListItemToPurchase.lastIndexOf(newListItemToPurchase.iditem) + 1;
+        // const idincrement = idcounter;
+        
+
+        // if(idcounter === undefined || !idcounter || idcounter === 0){
+        //   const idincremented = idincrement * 0;
+        //   return(idincremented)
+          
+        // }
+        // if(idcounter> 0){
+        //   idincremented = idcounter + 1;
+        //   return(idincremented);
+        // }
+
         
         newListItemToPurchase.push({
-          iditem: idincrement,
+          iditem: idcounter,
           itemtext,
           price,
           photo: 'La foto',
