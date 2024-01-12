@@ -83,9 +83,9 @@ function ListProvider(props){
       };
       const createItemToPurchase = (itemtext, price) =>{
         // texto
-       // const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.iditem === id );
+      //  const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.iditem === id );
         const newListItemToPurchase = [...ListItemToPurchase]; 
-        const idcounter = newListItemToPurchase.lastIndexOf(newListItemToPurchase.iditem) + 1;
+        const idcounter = newListItemToPurchase(newListItemToPurchase.itemtext);
         // const idincrement = idcounter;
         
 

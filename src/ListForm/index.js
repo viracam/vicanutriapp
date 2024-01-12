@@ -2,7 +2,10 @@ import React from "react";
 import { ListContext } from "../ListContext";
 
 function ListFrom(){
-    const [newListValue, setNewListValue] = React.useState()
+    const [newListValue, setNewListValue] = React.useState({
+        itemtext: "",
+        price: ""
+    })
     
 
     const{
@@ -10,35 +13,25 @@ function ListFrom(){
 
     } = React.useContext(ListContext)
 
-    const onChange = (onFoodNameChange, onFoodPriceChange) =>{
-
-    
-     onFoodNameChange = (event) =>{
-        this.setState({itemtext: event.target.value})
-        setNewListValue(event.target.value)
-
-       
-
-    }
-     onFoodPriceChange = (event) =>{
-        this.setState({price: event.target.value})
-        setNewListValue(event.target.value)
-       
+    const handleOnchange =(e) =>{
+        const{name, value} = e.target;
+        console.log(name, value)
+        
+        // setNewListValue((prev) =>{
+        //     return{...prev, [name]: value}
+        // })
+        setNewListValue(e.target.value)
+        
 
     }
-}
-
-
-    
-
     const onCancel = () =>{
 
     }
     const onSubmit = (event) =>{
      
         event.preventDefault();
-        console.log(this.state);
         createItemToPurchase(newListValue);
+
     
     }
     // const onSubmit = (event) =>{
@@ -52,14 +45,16 @@ function ListFrom(){
             <label htmlFor="itemtext">Añade alimento</label>
             <input 
                 placeholder="Pera, cebolla, etc..."
-                onChange={onChange(this.onFoodNameChange.bind(this))}
-                value={this.state.itemtext}
+                onChange={handleOnchange}
+                type="text"
+                name="itemtext"
             ></input>
             <label htmlFor="price">Añade el valor</label>
             <input
                 placeholder="$200 o $300"
-                onChange={onChange(this.onFoodPriceChange.bind(this))}
-                value={this.state.price}
+                onChange={handleOnchange}
+                type="number"
+                name="price"
 
             ></input>
             <div>
