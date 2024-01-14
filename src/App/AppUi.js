@@ -38,7 +38,7 @@ import { ListFrom } from "../ListForm";
 
           {searchedListItemToPurchase.map(item =>(
             <ItemToPurchase
-              key={item.iditem}
+              key={item.itemtext}
               text={item.itemtext}
               photo={item.photo}
               price={item.price}

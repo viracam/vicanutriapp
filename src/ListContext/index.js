@@ -32,9 +32,9 @@ function ListProvider(props){
           return itemToPurchaseText.includes(searchText);
         })
       }
-      const addListItemToPurchase = (id) =>{
+      const addListItemToPurchase = (text) =>{
         // texto
-        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.iditem === id );
+        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
         const newListItemToPurchase = [...ListItemToPurchase];
         const intPluss = newListItemToPurchase[ListItemToPurchaseIndex].startCounter;
         console.log(intPluss);
@@ -50,8 +50,8 @@ function ListProvider(props){
       }
       
           
-      const deductListItemToPurchase = (id) =>{
-        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.iditem === id );
+      const deductListItemToPurchase = (text) =>{
+        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
         const newListItemToPurchase = [...ListItemToPurchase];
         const intPluss = newListItemToPurchase[ListItemToPurchaseIndex].startCounter;
         console.log(intPluss);
@@ -74,9 +74,9 @@ function ListProvider(props){
         
       
       };
-      const deleItemToPurchase = (id) =>{
+      const deleItemToPurchase = (text) =>{
         // texto
-        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.iditem === id );
+        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
         const newListItemToPurchase = [...ListItemToPurchase];
         newListItemToPurchase.splice(ListItemToPurchaseIndex, 1);
         saveListItemToPurchase(newListItemToPurchase);
