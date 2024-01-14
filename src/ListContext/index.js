@@ -83,9 +83,12 @@ function ListProvider(props){
       };
       const createItemToPurchase = (itemtext, price) =>{
         // texto
-      //  const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.iditem === id );
-        const newListItemToPurchase = [...ListItemToPurchase]; 
-        const idcounter = newListItemToPurchase(newListItemToPurchase.itemtext);
+      //  const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
+        // const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
+        const newListItemToPurchase = [...ListItemToPurchase];
+        const idcounter = newListItemToPurchase.lastIndexOf(newListItemToPurchase.iditem) + 1;
+
+        
         // const idincrement = idcounter;
         
 
@@ -102,9 +105,10 @@ function ListProvider(props){
         
         newListItemToPurchase.push({
           iditem: idcounter,
-          itemtext,
-          price,
+          itemtext: itemtext,
+          price: price,
           photo: 'La foto',
+          nutritionfacts: 'ver nutricion',
           added : false,
           startCounter: 0,
           defaultNumberOfItemsAdded: 0
