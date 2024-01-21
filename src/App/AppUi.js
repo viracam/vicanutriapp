@@ -38,15 +38,15 @@ import { ListFrom } from "../ListForm";
 
           {searchedListItemToPurchase.map(item =>(
             <ItemToPurchase
-              key={item.itemtext}
+              key={item.iditem}
               text={item.itemtext}
               photo={item.photo}
               price={item.price}
               nutritionfacts={item.nutritionfacts}
               added={item.added}
-              onAdded={() => addListItemToPurchase(item.iditem)}
-              onDeduct={() => deductListItemToPurchase(item.iditem)}
-              onDelete={() => deleItemToPurchase(item.iditem)}
+              onAdded={() => addListItemToPurchase(item.itemtext)}
+              onDeduct={() => deductListItemToPurchase(item.itemtext)}
+              onDelete={() => deleItemToPurchase(item.itemtext)}
               defaultNumberOfItemsAdded= {item.startCounter}
             />
           ) )}

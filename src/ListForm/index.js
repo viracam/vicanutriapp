@@ -31,6 +31,7 @@ function ListFrom(){
      
         event.preventDefault();
         createItemToPurchase(newListValue);
+        console.log('el valor es ' + newListValue)
 
     
     }

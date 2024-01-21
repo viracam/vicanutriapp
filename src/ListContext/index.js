@@ -83,21 +83,23 @@ function ListProvider(props){
       };
       const createItemToPurchase = (itemtext, price) =>{
         // texto
-      //  const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
         // const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
         const newListItemToPurchase = [...ListItemToPurchase];
-        const idcounter = newListItemToPurchase.lastIndexOf(newListItemToPurchase.iditem) + 1;
+        const idcounter = ListItemToPurchase.length + 1;
+        
+        // const idcounter = newListItemToPurchase.lastIndexOf(ListItemToPurchaseIndex);
+        console.log('que es id coutner' + ListItemToPurchase.length);
 
         
         // const idincrement = idcounter;
         
 
-        // if(idcounter === undefined || !idcounter || idcounter === 0){
+        // if(idincrement === undefined || !idcounter || idcounter === 0){
         //   const idincremented = idincrement * 0;
         //   return(idincremented)
           
         // }
-        // if(idcounter> 0){
+        // if(idincrement> 0){
         //   idincremented = idcounter + 1;
         //   return(idincremented);
         // }
@@ -105,7 +107,7 @@ function ListProvider(props){
         
         newListItemToPurchase.push({
           iditem: idcounter,
-          itemtext: itemtext,
+          text: itemtext,
           price: price,
           photo: 'La foto',
           nutritionfacts: 'ver nutricion',
