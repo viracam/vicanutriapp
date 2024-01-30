@@ -107,7 +107,7 @@ function ListProvider(props){
         
         newListItemToPurchase.push({
           iditem: idcounter,
-          text: itemtext,
+          itemtext: itemtext,
           price: price,
           photo: 'La foto',
           nutritionfacts: 'ver nutricion',

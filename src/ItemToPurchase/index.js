@@ -1,7 +1,9 @@
 import React from "react";
 import './css/itemtopurchase.css'
 
+
 function ItemToPurchase(props){
+
 
     return (
        

@@ -6,32 +6,48 @@ function ListFrom(){
         itemtext: "",
         price: ""
     })
-    
+    const [itemtext, setItemtext] = React.useState('');
+    const [price, setItemprice] = React.useState('');
 
     const{
         createItemToPurchase,
+        setOpenModal
 
     } = React.useContext(ListContext)
 
-    const handleOnchange =(e) =>{
-        const{name, value} = e.target;
-        console.log(name, value)
+    // const handleOnchange =(e) =>{
+    //     const{name, value} = e.target;
+    //     console.log(name, value)
         
-        // setNewListValue((prev) =>{
-        //     return{...prev, [name]: value}
-        // })
-        setNewListValue(e.target.value)
+    //     // setNewListValue((prev) =>{
+    //     //     return{...prev, [name]: value}
+    //     // })
+        
+    //     setNewListValue(e.target.value)
+    
         
 
-    }
+    // }
+
     const onCancel = () =>{
+        setOpenModal(false)
 
     }
     const onSubmit = (event) =>{
      
         event.preventDefault();
-        createItemToPurchase(newListValue);
+        const lastitemupdate ={itemtext, price}
+        console.log(lastitemupdate);
+     
+
+        setNewListValue(lastitemupdate)
+
+        
+
+
+        createItemToPurchase(itemtext, price);
         console.log('el valor es ' + newListValue)
+        setOpenModal(false);
 
     
     }
@@ -46,16 +62,16 @@ function ListFrom(){
             <label htmlFor="itemtext">Añade alimento</label>
             <input 
                 placeholder="Pera, cebolla, etc..."
-                onChange={handleOnchange}
+                onChange={(e) => setItemtext(e.target.value)}
                 type="text"
-                name="itemtext"
+                name={itemtext}
             ></input>
             <label htmlFor="price">Añade el valor</label>
             <input
                 placeholder="$200 o $300"
-                onChange={handleOnchange}
+                onChange={(e) => setItemprice(e.target.value)}
                 type="number"
-                name="price"
+                name={price}
 
             ></input>
             <div>
