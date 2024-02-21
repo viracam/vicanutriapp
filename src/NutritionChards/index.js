@@ -6,7 +6,7 @@ import './css/nutrientBarComponentStyles.css';
 
 
 function NutritionChards(props) {
-  const {nutritinalDb } = React.useContext(FactContext);
+  const {totalCarbs } = React.useContext(FactContext);
   // console.log(defaultListNutrient)
  
   return (
@@ -19,11 +19,11 @@ function NutritionChards(props) {
                   <span
                     className="nutrientBarP"
                     style={{
-                      width: nutritinalDb.totalCarbs +"%"
+                      width: totalCarbs +"%"
                     }}
                   ></span>
                 </div>
-                <span>{props.children}%</span>
+                <span>{props.totalCarbs}%</span>
             </div>
     </div>
   )
