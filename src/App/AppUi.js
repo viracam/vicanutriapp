@@ -1,5 +1,5 @@
 import React from "react";
-import { ListContext } from "../ListContext";
+import { FactContext, ListContext } from "../ListContext";
 import {ListCounter} from '../ListCounter';
 import {ListItemstoAdd} from '../ListItemstoAdd';
 import {ItemToPurchase} from '../ItemToPurchase';
@@ -7,6 +7,7 @@ import {ListSearch} from '../ListSearch';
 import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
 import { MyModal, createPortal } from "../Modal";
 import { ListFrom } from "../ListForm";
+import { NutritionChards } from "../NutritionChards";
 
 
 
@@ -23,12 +24,17 @@ import { ListFrom } from "../ListForm";
       openModal,
       setOpenModal
     } = React.useContext(ListContext);
+    const {valueFactcontext} = React.useContext(FactContext)
     return(
         <React.Fragment>
         <ListCounter
         />
         
         <ListSearch
+        />
+        <NutritionChards
+          valueFactcontext={valueFactcontext}
+        
         />
        
             <ListItemstoAdd>

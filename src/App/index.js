@@ -13,6 +13,24 @@ import { AppUi } from './AppUi';
 // ];
 // localStorage.setItem('LISTTOPURCHASE_V1', JSON.stringify(defaultListItemToPurchase));
 
+// const defaultListNutrient = [
+//   {iditem: 0, itemnutrientname: 'Zanahoria',
+//     grams : 10,
+//     totalcarbs: 100,
+//     fiber: 30,
+//     starch: 30, 
+//     totalsugar: 100,
+//       fructose: 30,
+//       galactose: 30,
+//       glucose: 30,
+//       lactose: 30,
+//       sucrose: 30,
+//       addedSugar: 30
+//   }
+
+// ];
+// localStorage.setItem('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient));
+
 function App() {
 
 

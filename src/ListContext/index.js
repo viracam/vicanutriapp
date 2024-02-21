@@ -1,8 +1,22 @@
 import React from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
-const ListContext = React.createContext();
+// Context fact----
+const FactContext = React.createContext();
 
+function FactProvider(props){
+  const {valueFactcontext} = useLocalStorage('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient))
+  return(
+    <FactContext.Provider value={{
+      valueFactcontext
+    }}>
+      {props.children}
+    </FactContext.Provider>
+  );
+}
+<FactContext.Consumer></FactContext.Consumer>
+// --------------
+const ListContext = React.createContext();
 function ListProvider(props){
     const {
         Listitem: ListItemToPurchase,
@@ -10,6 +24,7 @@ function ListProvider(props){
         loading,
         error,
       } = useLocalStorage('LISTTOPURCHASE_V1', []);
+    
       
     
       const [searchValue, setStateSearch] = React.useState('');
@@ -132,8 +147,8 @@ function ListProvider(props){
             deleItemToPurchase,
             openModal,
             setOpenModal,
-            createItemToPurchase
-
+            createItemToPurchase,
+            FactContext
         }}>
             {props.children}
         </ListContext.Provider>
@@ -143,4 +158,4 @@ function ListProvider(props){
 
 <ListContext.Consumer></ListContext.Consumer>
 
-export {ListContext, ListProvider}
+export {ListContext, ListProvider, FactContext, FactProvider}
