@@ -1,13 +1,15 @@
 import React from "react";
-import { FactContext, ListContext } from "../ListContext";
+import { ListContext } from "../ListContext";
+import { FactContext } from "../FactContext";
 import {ListCounter} from '../ListCounter';
 import {ListItemstoAdd} from '../ListItemstoAdd';
 import {ItemToPurchase} from '../ItemToPurchase';
 import {ListSearch} from '../ListSearch';
+import { NutritionChards } from "../NutritionChards";
 import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
 import { MyModal, createPortal } from "../Modal";
 import { ListFrom } from "../ListForm";
-import { NutritionChards } from "../NutritionChards";
+
 
 
 
@@ -24,18 +26,23 @@ import { NutritionChards } from "../NutritionChards";
       openModal,
       setOpenModal
     } = React.useContext(ListContext);
-    const {valueFactcontext} = React.useContext(FactContext)
+    const {
+      valueFactcontext,
+      errorfact,
+      loadingfact
+    } = React.useContext(FactContext);
     return(
         <React.Fragment>
         <ListCounter
         />
+        <NutritionChards>
+          {valueFactcontext}
+          {errorfact && <p>Estamos errando..</p>}
+          {loadingfact && <p>Estamos cargando..</p>}
+          {(!loadingfact) && <p>no estamos demorando mas en cargar la informacion</p>}
+        </NutritionChards>
         
-        <ListSearch
-        />
-        <NutritionChards
-          valueFactcontext={valueFactcontext}
-        
-        />
+        <ListSearch/>
        
             <ListItemstoAdd>
             {error && <p>Estamos errando..</p>}
@@ -78,6 +85,7 @@ import { NutritionChards } from "../NutritionChards";
 
         
       </React.Fragment>
+
     );
  }
 
