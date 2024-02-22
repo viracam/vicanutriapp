@@ -3,7 +3,7 @@ import React from "react";
 function useLocalStorageFacts( factItemName, initialFactValue){
     const[errorfact, setFactError] = React.useState(false);
     const[loadingfact, setFactLoading] = React.useState(true);
-    const[Factitem, setFactItem] = React.useState(initialFactValue);
+    const[totalCarbs, setFactItem] = React.useState(initialFactValue);
 
     React.useEffect(()=> {
         setTimeout(()=>{
@@ -37,7 +37,7 @@ function useLocalStorageFacts( factItemName, initialFactValue){
             }
         }
         return{
-            Factitem,
+            totalCarbs,
             saveFactItem,
             loadingfact,
             errorfact

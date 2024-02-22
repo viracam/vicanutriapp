@@ -1,6 +1,6 @@
 import React from "react";
 import { ListContext } from "../ListContext";
-import { FactContext } from "../FactContext";
+// import { FactContext } from "../FactContext";
 import {ListCounter} from '../ListCounter';
 import {ListItemstoAdd} from '../ListItemstoAdd';
 import {ItemToPurchase} from '../ItemToPurchase';
@@ -11,7 +11,49 @@ import { MyModal, createPortal } from "../Modal";
 import { ListFrom } from "../ListForm";
 
 
+// DATA FACT BASE
+const defaultListNutrient = [
+  {idfactitem: 0, itemnutrientname: 'Zanahoria',
+    grams : 10,
+    totalcarbs: 100,
+    fiber: 30,
+    starch: 30, 
+    totalsugar: 100,
+      fructose: 30,
+      galactose: 30,
+      glucose: 30,
+      lactose: 30,
+      sucrose: 30,
+      addedSugar: 30
+  },
+  {idfactitem: 1, itemnutrientname: 'papa',
+    grams : 10,
+    totalcarbs: 100,
+    fiber: 30,
+    starch: 30, 
+    totalsugar: 100,
+      fructose: 30,
+      galactose: 30,
+      glucose: 30,
+      lactose: 30,
+      sucrose: 30,
+      addedSugar: 30
+  },
+  {idFactitem: 3, itemnutrientname: 'Cebolla',
+    grams : 10,
+    totalcarbs: 100,
+    fiber: 30,
+    starch: 30, 
+    totalsugar: 100,
+      fructose: 30,
+      galactose: 30,
+      glucose: 30,
+      lactose: 30,
+      sucrose: 30,
+      addedSugar: 30
+  }
 
+];
 
 
 
@@ -26,21 +68,40 @@ import { ListFrom } from "../ListForm";
       openModal,
       setOpenModal
     } = React.useContext(ListContext);
-    const {
-      valueFactcontext,
-      errorfact,
-      loadingfact
-    } = React.useContext(FactContext);
+    // const {
+    //   totalCarbs,
+    //   errorfact,
+    //   loadingfact
+    // } = React.useContext(FactContext);
     return(
         <React.Fragment>
         <ListCounter
         />
-        <NutritionChards>
-          {valueFactcontext}
-          {errorfact && <p>Estamos errando..</p>}
+        
+        {defaultListNutrient.map(fact =>(
+        <NutritionChards
+          key={fact.idfactitem}
+          itemnutrientname={fact.itemnutrientname}
+          grams={fact.grams}
+          totalcarbs={fact.totalcarbs}
+          fiber={fact.fiber}
+          starch={fact.starch} 
+          totalsugar={fact.totalsugar}
+            fructose={fact.fructose}
+            galactose={fact.galactose}
+            glucose={fact.glucose}
+            lactose={fact.lactose}
+            sucrose={fact.sucrose}
+            addedSugar={fact.addedSugar}
+
+        />
+          ))}
+         
+          
+          {/* {errorfact && <p>Estamos errando..</p>}
           {loadingfact && <p>Estamos cargando..</p>}
           {(!loadingfact) && <p>no estamos demorando mas en cargar la informacion</p>}
-        </NutritionChards>
+        </NutritionChards> */}
         
         <ListSearch/>
        

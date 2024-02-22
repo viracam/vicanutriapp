@@ -23,10 +23,10 @@ const defaultListNutrient = [
 const FactContext = React.createContext();
 
 function FactProvider(props){
-  const {Factitem: valueFactcontext} = useLocalStorageFacts('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient))
+  const {totalcarbs} = useLocalStorageFacts('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient))
   return(
     <FactContext.Provider value={{
-      valueFactcontext
+      totalcarbs
     }}>
       {props.children}
     </FactContext.Provider>
