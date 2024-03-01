@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
 
+
 const ListContext = React.createContext();
 function ListProvider(props){
     const {
@@ -15,11 +16,13 @@ function ListProvider(props){
     
       const [searchValue, setStateSearch] = React.useState('');
       const [openModal, setOpenModal] = React.useState(false)
+      const [clickedNutrientValue, setclickedNutrientValue] = React.useState('');
       
       
       
     
       const addedListItemToPurchase = ListItemToPurchase.filter(item => !!item.added).length;
+      const clickedNutrientListItemToPurchase = ListItemToPurchase.filter(item => !!item.clickedNutrition).length;
       const totalListItemToPurchase = ListItemToPurchase.length;
     
       let searchedListItemToPurchase = [];
@@ -82,6 +85,23 @@ function ListProvider(props){
         newListItemToPurchase.splice(ListItemToPurchaseIndex, 1);
         saveListItemToPurchase(newListItemToPurchase);
       };
+      const onClickedNutriction = (text) =>{
+        const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
+        const newListItemToPurchase = [...ListItemToPurchase];
+        const clickedNutritionValue = newListItemToPurchase[ListItemToPurchaseIndex].clickedNutrition;
+        console.log(clickedNutritionValue);
+        
+        if(clickedNutritionValue === false){
+          
+          newListItemToPurchase[ListItemToPurchaseIndex].clickedNutrition = true;
+          saveListItemToPurchase(newListItemToPurchase);
+          console.log(newListItemToPurchase);
+        }
+        else{
+          newListItemToPurchase[ListItemToPurchaseIndex].clickedNutrition = false;
+          saveListItemToPurchase(newListItemToPurchase);
+        }
+      }
       const createItemToPurchase = (itemtext, price) =>{
         // texto
         // const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
@@ -112,11 +132,13 @@ function ListProvider(props){
           price: price,
           photo: 'La foto',
           nutritionfacts: 'ver nutricion',
+          clickedNutrition : false,
           added : false,
           startCounter: 0,
           defaultNumberOfItemsAdded: 0
       });
         saveListItemToPurchase(newListItemToPurchase);
+
       };
 
     return(
@@ -125,6 +147,9 @@ function ListProvider(props){
             error,
             totalListItemToPurchase,
             addedListItemToPurchase,
+            clickedNutrientListItemToPurchase,
+            clickedNutrientValue,
+            setclickedNutrientValue,
             searchValue,
             setStateSearch,
             searchedListItemToPurchase,
@@ -133,7 +158,8 @@ function ListProvider(props){
             deleItemToPurchase,
             openModal,
             setOpenModal,
-            createItemToPurchase
+            createItemToPurchase,
+            onClickedNutriction
         }}>
             {props.children}
         </ListContext.Provider>

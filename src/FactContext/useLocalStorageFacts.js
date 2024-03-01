@@ -1,9 +1,9 @@
 import React from "react";
 
 function useLocalStorageFacts( factItemName, initialFactValue){
-    const[errorfact, setFactError] = React.useState(false);
-    const[loadingfact, setFactLoading] = React.useState(true);
-    const[totalCarbs, setFactItem] = React.useState(initialFactValue);
+    const[errorfactNutrient, setFactError] = React.useState(false);
+    const[loadingfactNutrient, setFactLoading] = React.useState(true);
+    const[ListfactNutrientItemChard, setFactItemChard] = React.useState(initialFactValue);
 
     React.useEffect(()=> {
         setTimeout(()=>{
@@ -13,34 +13,34 @@ function useLocalStorageFacts( factItemName, initialFactValue){
             let parsedFactItem;
         
             if(!localStorageFactItem){
-              localStorage.setFactItem(factItemName, JSON.stringify(initialFactValue));
+              localStorage.setFactItemChard(factItemName, JSON.stringify(initialFactValue));
               parsedFactItem = initialFactValue;
             }else{
               parsedFactItem = JSON.parse(localStorageFactItem);
           
             }
-            setFactItem(parsedFactItem);
+            setFactItemChard(parsedFactItem);
             setFactLoading(false);
-          } catch(errorfact){
-            setFactError(errorfact);
+          } catch(errorfactNutrient){
+            setFactError(errorfactNutrient);
           }
         },3000);
       });
             ///save Facts
-        const saveFactItem = (newFactItem) =>{
+        const saveFactFactNutrientItem = (newFactItem) =>{
             try{
             const stringifyFactItem = JSON.stringify(newFactItem);
-            localStorage.setFactItem(factItemName, stringifyFactItem);
-            setFactItem(newFactItem);
-            }catch(errorfact){
-            setFactError(errorfact);
+            localStorage.setFactItemChard(factItemName, stringifyFactItem);
+            setFactItemChard(newFactItem);
+            }catch(errorfactNutrient){
+            setFactError(errorfactNutrient);
             }
         }
         return{
-            totalCarbs,
-            saveFactItem,
-            loadingfact,
-            errorfact
+            ListfactNutrientItemChard,
+            saveFactFactNutrientItem,
+            loadingfactNutrient,
+            errorfactNutrient
         }
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { ListContext } from "../ListContext";
-// import { FactContext } from "../FactContext";
+import { FactContext } from "../FactContext";
 import {ListCounter} from '../ListCounter';
 import {ListItemstoAdd} from '../ListItemstoAdd';
 import {ItemToPurchase} from '../ItemToPurchase';
@@ -9,6 +9,7 @@ import { NutritionChards } from "../NutritionChards";
 import {SellerButtonAddItemToPurchase} from '../SellerButtonAddItemToPurchase';
 import { MyModal, createPortal } from "../Modal";
 import { ListFrom } from "../ListForm";
+import { ListFactToView } from "../ListFactToView";
 
 
 // DATA FACT BASE
@@ -26,7 +27,7 @@ const defaultListNutrient = [
       sucrose: 30,
       addedSugar: 30
   },
-  {idfactitem: 1, itemnutrientname: 'papa',
+  {idfactitem: 1, itemnutrientname: 'Banano',
     grams : 10,
     totalcarbs: 100,
     fiber: 30,
@@ -39,7 +40,7 @@ const defaultListNutrient = [
       sucrose: 30,
       addedSugar: 30
   },
-  {idFactitem: 3, itemnutrientname: 'Cebolla',
+  {idFactitem: 3, itemnutrientname: 'Platano',
     grams : 10,
     totalcarbs: 100,
     fiber: 30,
@@ -54,6 +55,7 @@ const defaultListNutrient = [
   }
 
 ];
+localStorage.setItem('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient));
 
 
 
@@ -65,20 +67,27 @@ const defaultListNutrient = [
       addListItemToPurchase,
       deleItemToPurchase,
       deductListItemToPurchase,
+      onClickedNutriction,
       openModal,
-      setOpenModal
+      setOpenModal,
+      
     } = React.useContext(ListContext);
-    // const {
-    //   totalCarbs,
-    //   errorfact,
-    //   loadingfact
-    // } = React.useContext(FactContext);
+    const {
+      // clickedNutrientValue,
+      // setclickedNutrientValue,
+      clickedFactNutrientToPurchase,
+      loadingfactNutrient,
+      errorfactNutrient
+    } = React.useContext(FactContext);
     return(
         <React.Fragment>
         <ListCounter
         />
-        
-        {defaultListNutrient.map(fact =>(
+        <ListFactToView>
+          {errorfactNutrient && <p>Estamos errando..</p>}
+          {loadingfactNutrient && <p>Estamos cargando..</p>}
+          {(!loadingfactNutrient && !clickedFactNutrientToPurchase.length) && <p>no estamos demorando mas en cargar la informacion</p>}
+        {clickedFactNutrientToPurchase.map(fact =>(
         <NutritionChards
           key={fact.idfactitem}
           itemnutrientname={fact.itemnutrientname}
@@ -96,6 +105,7 @@ const defaultListNutrient = [
 
         />
           ))}
+          </ListFactToView>
          
           
           {/* {errorfact && <p>Estamos errando..</p>}
@@ -117,10 +127,12 @@ const defaultListNutrient = [
               photo={item.photo}
               price={item.price}
               nutritionfacts={item.nutritionfacts}
+              clickedNutrition={item.clickedNutrition}
               added={item.added}
               onAdded={() => addListItemToPurchase(item.itemtext)}
               onDeduct={() => deductListItemToPurchase(item.itemtext)}
               onDelete={() => deleItemToPurchase(item.itemtext)}
+              onClickNutrition={()=> onClickedNutriction(item.itemtext)}
               defaultNumberOfItemsAdded= {item.startCounter}
             />
           ) )}

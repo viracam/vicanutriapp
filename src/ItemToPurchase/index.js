@@ -1,9 +1,16 @@
 import React from "react";
 import './css/itemtopurchase.css'
+import { FactContext } from "../FactContext";
 
 
 function ItemToPurchase(props){
-
+    const [clickedNutrientValue, setclickedNutrientValue] = React.useContext(FactContext)
+    const onClickedNutrientValue =(event) =>{
+        setclickedNutrientValue(event === props.text);
+        return(
+            props.onClickNutrition
+        );
+    }
 
     return (
        
@@ -12,12 +19,15 @@ function ItemToPurchase(props){
                     className="Icon-Delete"
                     onClick={props.onDelete}
                 > x</span>
-                <p>{props.text}</p>
+                <p>{clickedNutrientValue === props.text}</p>
                 <p>COP ${props.price}</p>
                 <figure>
                     <img alt={props.photo}/>
                 </figure>
-                <button className="Nutributton">
+                <button
+                    className={`Nutributton ${props.clickedNutrition && 'Icon-LessItem-active'}`}
+                    onClick={onClickedNutrientValue}
+                >
                     {props.nutritionfacts}
                 </button>
                 <div className="Purchasebutton">
