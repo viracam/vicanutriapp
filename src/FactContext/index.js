@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocalStorageFacts } from './useLocalStorageFacts';
+import { ListContext } from '../ListContext';
 
 // const defaultListNutrient = [
 //     {idFactitem: 0, itemnutrientname: 'Zanahoria',
@@ -50,6 +51,7 @@ function FactProvider(props){
   // const clikedFactItemToPurchase = FactItemToPurchase.filter(fact => !!fact.added).length;
   //     const totalListItemToPurchase = ListItemToPurchase.length;
   return(
+    <React.Fragment>
     <FactContext.Provider value={{
       clickedFactNutrientToPurchase,
       clickedNutrientValue,
@@ -59,6 +61,13 @@ function FactProvider(props){
     }}>
       {props.children}
     </FactContext.Provider>
+    <ListContext.Provider value={{
+      clickedNutrientValue
+    }}>
+    {props.children}
+    </ListContext.Provider>
+
+    </React.Fragment>
   );
 }
  <FactContext.Consumer></FactContext.Consumer> 
