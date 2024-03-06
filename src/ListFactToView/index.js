@@ -3,7 +3,7 @@ import React from "react";
 
 function ListFactToView(props){
     return (
-        <section className="ListItemstoAdd">
+        <section className="ListFactoView">
             <div>
                 {props.children}
             </div>

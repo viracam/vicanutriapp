@@ -1,6 +1,6 @@
 import React from "react";
 import { ListContext } from "../ListContext";
-import { FactContext } from "../FactContext";
+// import { FactContext } from "../FactContext";
 import {ListCounter} from '../ListCounter';
 import {ListItemstoAdd} from '../ListItemstoAdd';
 import {ItemToPurchase} from '../ItemToPurchase';
@@ -89,7 +89,7 @@ localStorage.setItem('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient))
           {/* {(!loadingfactNutrient && !clickedNutrientValue.length) && <p>no estamos demorando mas en cargar la informacion</p>} */}
         {defaultListNutrient.map(fact =>(
         <NutritionChards
-          key={fact.idfactitem}
+          key={fact.idfactitem + fact.itemnutrientname}
           itemnutrientname={fact.itemnutrientname}
           grams={fact.grams}
           totalcarbs={fact.totalcarbs}
