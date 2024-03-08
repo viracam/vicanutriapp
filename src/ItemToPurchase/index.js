@@ -4,7 +4,7 @@ import './css/itemtopurchase.css'
 
 
 function ItemToPurchase(props){
-    // const [clickedNutrientValue, setclickedNutrientValue] = React.useContext(FactContext)
+    
     // const onClickedNutrientValue =() =>{
     //     // setclickedNutrientValue(event === props.text);
     //     return(

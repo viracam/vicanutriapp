@@ -17,6 +17,7 @@ function ListProvider(props){
       const [searchValue, setStateSearch] = React.useState('');
       const [openModal, setOpenModal] = React.useState(false)
       const [clickedNutrientValue, setclickedNutrientValue] = React.useState('');
+      const [textClickedNutrientValue, settexClickedNutrientValue] = React.useState('')
       
       
       
@@ -86,6 +87,7 @@ function ListProvider(props){
         saveListItemToPurchase(newListItemToPurchase);
       };
       const onClickedNutriction = (text) =>{
+        settexClickedNutrientValue(text);
         const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
         const newListItemToPurchase = [...ListItemToPurchase];
         const clickedNutritionValue = newListItemToPurchase[ListItemToPurchaseIndex].clickedNutrition;
@@ -100,6 +102,9 @@ function ListProvider(props){
         else{
           newListItemToPurchase[ListItemToPurchaseIndex].clickedNutrition = false;
           saveListItemToPurchase(newListItemToPurchase);
+          
+          console.log(textClickedNutrientValue);
+
         }
       }
       const createItemToPurchase = (itemtext, price) =>{
