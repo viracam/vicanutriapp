@@ -4,6 +4,7 @@ import './css/itemtopurchase.css'
 
 
 function ItemToPurchase(props){
+    const [textClickedNutrientValue, settexClickedNutrientValue] = React.useState(props.text);
     
     // const onClickedNutrientValue =() =>{
     //     // setclickedNutrientValue(event === props.text);
@@ -27,6 +28,10 @@ function ItemToPurchase(props){
                 <button
                     // className={`Nutributton ${props.clickedNutrition && 'Icon-LessItem-active'}`}
                     onClick={props.onClickNutrition}
+                    onMouseDown={()=>{
+                        settexClickedNutrientValue(props.text);
+                        console.log(textClickedNutrientValue)
+                    }}
                 >
                     {props.nutritionfacts}
                 </button>
@@ -43,6 +48,8 @@ function ItemToPurchase(props){
                     <span
                         className={`Icon Icon-PlussItem ${props.added && 'Icon-PlussItem-active'}`}
                         onClick={props.onAdded}
+            
+
                     >+</span>
                 </div>
             </article>
