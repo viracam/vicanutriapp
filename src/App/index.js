@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ListProvider } from '../ListContext';
-// import { FactProvider } from '../FactContext';
+import { FactProvider } from '../FactContext';
 import { AppUi } from './AppUi';
 
 
@@ -30,10 +30,10 @@ function App() {
 
   return(
     <ListProvider>
-    {/* <FactProvider> */}
+    <FactProvider>
       <AppUi
       />
-    {/* </FactProvider> */}
+    </FactProvider>
     </ListProvider>
   );
   

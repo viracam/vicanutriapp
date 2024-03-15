@@ -1,10 +1,11 @@
 import React from "react";
 import './css/itemtopurchase.css'
-import { FactContext } from "../FactContext";
+// import { FactContext } from "../FactContext";
 
 
 function ItemToPurchase(props){
-    const [textClickedNutrientValue, settexClickedNutrientValue] = React.useContext(FactContext);
+    const [textClickedNutrientValue, settexClickedNutrientValue] = React.useState(props.text);
+    // const [textClickedNutrientValue, settexClickedNutrientValue] = React.useContext(FactContext);
     const onMouseDownNutritionValue = (event) =>{
         settexClickedNutrientValue(event.target.value);
         console.log(textClickedNutrientValue)

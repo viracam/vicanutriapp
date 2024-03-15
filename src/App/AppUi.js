@@ -13,49 +13,49 @@ import { ListFactToView } from "../ListFactToView";
 
 
 // DATA FACT BASE
-// const defaultListNutrient = [
-//   {idfactitem: 0, itemnutrientname: 'Zanahoria',
-//     grams : 10,
-//     totalcarbs: 100,
-//     fiber: 30,
-//     starch: 30, 
-//     totalsugar: 100,
-//       fructose: 30,
-//       galactose: 30,
-//       glucose: 30,
-//       lactose: 30,
-//       sucrose: 30,
-//       addedSugar: 30
-//   },
-//   {idfactitem: 1, itemnutrientname: 'Banano',
-//     grams : 10,
-//     totalcarbs: 100,
-//     fiber: 30,
-//     starch: 30, 
-//     totalsugar: 100,
-//       fructose: 30,
-//       galactose: 30,
-//       glucose: 30,
-//       lactose: 30,
-//       sucrose: 30,
-//       addedSugar: 30
-//   },
-//   {idFactitem: 3, itemnutrientname: 'Platano',
-//     grams : 10,
-//     totalcarbs: 100,
-//     fiber: 30,
-//     starch: 30, 
-//     totalsugar: 100,
-//       fructose: 30,
-//       galactose: 30,
-//       glucose: 30,
-//       lactose: 30,
-//       sucrose: 30,
-//       addedSugar: 30
-//   }
+const defaultListNutrient = [
+  {idfactitem: 0, itemnutrientname: 'Zanahoria',
+    grams : 10,
+    totalcarbs: 100,
+    fiber: 30,
+    starch: 30, 
+    totalsugar: 100,
+      fructose: 30,
+      galactose: 30,
+      glucose: 30,
+      lactose: 30,
+      sucrose: 30,
+      addedSugar: 30
+  },
+  {idfactitem: 1, itemnutrientname: 'Banano',
+    grams : 10,
+    totalcarbs: 100,
+    fiber: 30,
+    starch: 30, 
+    totalsugar: 100,
+      fructose: 30,
+      galactose: 30,
+      glucose: 30,
+      lactose: 30,
+      sucrose: 30,
+      addedSugar: 30
+  },
+  {idFactitem: 3, itemnutrientname: 'Platano',
+    grams : 10,
+    totalcarbs: 100,
+    fiber: 30,
+    starch: 30, 
+    totalsugar: 100,
+      fructose: 30,
+      galactose: 30,
+      glucose: 30,
+      lactose: 30,
+      sucrose: 30,
+      addedSugar: 30
+  }
 
-// ];
-// localStorage.setItem('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient));
+];
+localStorage.setItem('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient));
 
 
 

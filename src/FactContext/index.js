@@ -32,11 +32,11 @@ function FactProvider(props){
   }= useLocalStorageFacts('LISTFACTNUTRIENT_V1', [])
 
   /// ----Estados
-  const [textClickedNutrientValue, settexClickedNutrientValue] = React.useState('');
+  const [textClickedNutrientValue, settexClickedNutrientValue] = React.useState(props.itemnutrientname);
 
   let clickedFactNutrientToPurchase = ListFactItemToPurchase;
     
-  if(!textClickedNutrientValue.length >= 1){
+  if(!textClickedNutrientValue){
     clickedFactNutrientToPurchase = ListFactItemToPurchase;
   } else{
     clickedFactNutrientToPurchase = ListFactItemToPurchase.filter(fact => {
@@ -48,6 +48,7 @@ function FactProvider(props){
       
     })
     saveFactFactNutrientItem(clickedFactNutrientToPurchase);
+    console.log(clickedFactNutrientToPurchase)
   }
 
   // const clikedFactItemToPurchase = FactItemToPurchase.filter(fact => !!fact.added).length;
