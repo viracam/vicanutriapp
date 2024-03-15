@@ -13,7 +13,7 @@ function useLocalStorageFacts( factItemName, initialFactValue){
             let parsedFactItem;
         
             if(!localStorageFactItem){
-              localStorage.setFactItemChard(factItemName, JSON.stringify(initialFactValue));
+              localStorage.setItem(factItemName, JSON.stringify(initialFactValue));
               parsedFactItem = initialFactValue;
             }else{
               parsedFactItem = JSON.parse(localStorageFactItem);
@@ -29,11 +29,11 @@ function useLocalStorageFacts( factItemName, initialFactValue){
             ///save Facts
         const saveFactFactNutrientItem = (newFactItem) =>{
             try{
-            const stringifyFactItem = JSON.stringify(newFactItem);
-            localStorage.setFactItemChard(factItemName, stringifyFactItem);
-            setFactItemChard(newFactItem);
+              const stringifyFactItem = JSON.stringify(newFactItem);
+              localStorage.setItem(factItemName, stringifyFactItem);
+              setFactItemChard(newFactItem);
             }catch(errorfactNutrient){
-            setFactError(errorfactNutrient);
+              setFactError(errorfactNutrient);
             }
         }
         return{

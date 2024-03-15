@@ -1,6 +1,6 @@
 import React from "react";
 import { ListContext } from "../ListContext";
-// import { FactContext } from "../FactContext";
+import { FactContext } from "../FactContext";
 import {ListCounter} from '../ListCounter';
 import {ListItemstoAdd} from '../ListItemstoAdd';
 import {ItemToPurchase} from '../ItemToPurchase';
@@ -13,49 +13,49 @@ import { ListFactToView } from "../ListFactToView";
 
 
 // DATA FACT BASE
-const defaultListNutrient = [
-  {idfactitem: 0, itemnutrientname: 'Zanahoria',
-    grams : 10,
-    totalcarbs: 100,
-    fiber: 30,
-    starch: 30, 
-    totalsugar: 100,
-      fructose: 30,
-      galactose: 30,
-      glucose: 30,
-      lactose: 30,
-      sucrose: 30,
-      addedSugar: 30
-  },
-  {idfactitem: 1, itemnutrientname: 'Banano',
-    grams : 10,
-    totalcarbs: 100,
-    fiber: 30,
-    starch: 30, 
-    totalsugar: 100,
-      fructose: 30,
-      galactose: 30,
-      glucose: 30,
-      lactose: 30,
-      sucrose: 30,
-      addedSugar: 30
-  },
-  {idFactitem: 3, itemnutrientname: 'Platano',
-    grams : 10,
-    totalcarbs: 100,
-    fiber: 30,
-    starch: 30, 
-    totalsugar: 100,
-      fructose: 30,
-      galactose: 30,
-      glucose: 30,
-      lactose: 30,
-      sucrose: 30,
-      addedSugar: 30
-  }
+// const defaultListNutrient = [
+//   {idfactitem: 0, itemnutrientname: 'Zanahoria',
+//     grams : 10,
+//     totalcarbs: 100,
+//     fiber: 30,
+//     starch: 30, 
+//     totalsugar: 100,
+//       fructose: 30,
+//       galactose: 30,
+//       glucose: 30,
+//       lactose: 30,
+//       sucrose: 30,
+//       addedSugar: 30
+//   },
+//   {idfactitem: 1, itemnutrientname: 'Banano',
+//     grams : 10,
+//     totalcarbs: 100,
+//     fiber: 30,
+//     starch: 30, 
+//     totalsugar: 100,
+//       fructose: 30,
+//       galactose: 30,
+//       glucose: 30,
+//       lactose: 30,
+//       sucrose: 30,
+//       addedSugar: 30
+//   },
+//   {idFactitem: 3, itemnutrientname: 'Platano',
+//     grams : 10,
+//     totalcarbs: 100,
+//     fiber: 30,
+//     starch: 30, 
+//     totalsugar: 100,
+//       fructose: 30,
+//       galactose: 30,
+//       glucose: 30,
+//       lactose: 30,
+//       sucrose: 30,
+//       addedSugar: 30
+//   }
 
-];
-localStorage.setItem('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient));
+// ];
+// localStorage.setItem('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient));
 
 
 
@@ -72,22 +72,22 @@ localStorage.setItem('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient))
       setOpenModal,
       
     } = React.useContext(ListContext);
-    // const {
-    //   // clickedNutrientValue,
-    //   // setclickedNutrientValue,
-    //   // clickedFactNutrientToPurchase,
-    //   loadingfactNutrient,
-    //   errorfactNutrient
-    // } = React.useContext(FactContext);
+    const {
+      // textClickedNutrientValue,
+      // settexClickedNutrientValue,
+      clickedFactNutrientToPurchase,
+      loadingfactNutrient,
+      errorfactNutrient
+    } = React.useContext(FactContext);
     return(
         <React.Fragment>
         <ListCounter
         />
         <ListFactToView>
-          {/* {errorfactNutrient && <p>Estamos errando..</p>}
-          {loadingfactNutrient && <p>Estamos cargando..</p>} */}
-          {/* {(!loadingfactNutrient && !clickedNutrientValue.length) && <p>no estamos demorando mas en cargar la informacion</p>} */}
-        {defaultListNutrient.map(fact =>(
+          {errorfactNutrient&& <p>Estamos errando..</p>}
+          {loadingfactNutrient  && <p>Estamos cargando..</p>}
+          {(!loadingfactNutrient && !clickedFactNutrientToPurchase.length) && <p>no estamos demorando mas en cargar la informacion</p>}
+        {clickedFactNutrientToPurchase.map(fact =>(
         <NutritionChards
           key={fact.idfactitem + fact.itemnutrientname}
           itemnutrientname={fact.itemnutrientname}

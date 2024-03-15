@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocalStorageFacts } from './useLocalStorageFacts';
-import { ListContext } from '../ListContext';
+// import { ListContext } from '../ListContext';
 
 // const defaultListNutrient = [
 //     {idFactitem: 0, itemnutrientname: 'Zanahoria',
@@ -26,26 +26,28 @@ const FactContext = React.createContext();
 function FactProvider(props){
   const {
     ListfactNutrientItemChard: ListFactItemToPurchase,
-    // saveFactItem: saveFactFactNutrientItem,
+    saveFactItem: saveFactFactNutrientItem,
     loadingfactNutrient,
     errorfactNutrient,
   }= useLocalStorageFacts('LISTFACTNUTRIENT_V1', [])
 
   /// ----Estados
-  const [clickedNutrientValue, setclickedNutrientValue] = React.useState('');
+  const [textClickedNutrientValue, settexClickedNutrientValue] = React.useState('');
 
-  let clickedFactNutrientToPurchase = [];
+  let clickedFactNutrientToPurchase = ListFactItemToPurchase;
     
-  if(!clickedNutrientValue.length >= 1){
+  if(!textClickedNutrientValue.length >= 1){
     clickedFactNutrientToPurchase = ListFactItemToPurchase;
   } else{
     clickedFactNutrientToPurchase = ListFactItemToPurchase.filter(fact => {
-      const FactNutritionToPurchaseText = fact.itemtext.toLowerCase();
+      const FactNutritionToPurchaseText = fact.itemnutrientname.toLowerCase();
       ///estoy aqui haciendo la funcion para actualizar los facts
-      const factsearchText = clickedNutrientValue.toLowerCase();
+      const factsearchText = textClickedNutrientValue.toLowerCase();
+      
       return FactNutritionToPurchaseText.includes(factsearchText);
       
     })
+    saveFactFactNutrientItem(clickedFactNutrientToPurchase);
   }
 
   // const clikedFactItemToPurchase = FactItemToPurchase.filter(fact => !!fact.added).length;
@@ -54,18 +56,18 @@ function FactProvider(props){
     <React.Fragment>
     <FactContext.Provider value={{
       clickedFactNutrientToPurchase,
-      clickedNutrientValue,
-      setclickedNutrientValue,
+      textClickedNutrientValue,
+      settexClickedNutrientValue,
       loadingfactNutrient,
       errorfactNutrient
     }}>
       {props.children}
     </FactContext.Provider>
-    <ListContext.Provider value={{
-      clickedNutrientValue
+    {/* <ListContext.Provider value={{
+      textClickedNutrientValue
     }}>
     {props.children}
-    </ListContext.Provider>
+    </ListContext.Provider> */}
 
     </React.Fragment>
   );
