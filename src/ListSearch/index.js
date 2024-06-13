@@ -7,6 +7,7 @@ function ListSearch(){
     const onSearchValue = (event) =>{
         console.log(event.target.value);
         setStateSearch(event.target.value)
+        console.log(setStateSearch);
     }
     return (
         <input

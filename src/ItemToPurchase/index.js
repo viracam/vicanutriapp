@@ -1,16 +1,28 @@
 import React from "react";
 import './css/itemtopurchase.css'
-// import { FactContext } from "../FactContext";
+import { FactContext } from "../FactContext";
 
 
 function ItemToPurchase(props){
-    const [textClickedNutrientValue, settexClickedNutrientValue] = React.useState(props.text);
-    // const [textClickedNutrientValue, settexClickedNutrientValue] = React.useContext(FactContext);
+    // const [textClickedNutrientValue, settexClickedNutrientValue] = React.useState(props.text);
+     const{textClickedNutrientValueContext, settexClickedNutrientValueContext} = React.useContext(FactContext);
+    
+    
     const onMouseDownNutritionValue = (event) =>{
-        settexClickedNutrientValue(event.target.value);
-        console.log(textClickedNutrientValue)
+      
+         settexClickedNutrientValueContext(event.target.value);
+       console.log('Este es el textnutrientVALUEcONTEXT' + textClickedNutrientValueContext)
+
 
     }
+    const handleClick = (event) => {
+        // Call your onClickNutrition function
+        props.onClickNutrition(event);
+        // Then call your onMouseDownNutritionValue function
+        onMouseDownNutritionValue(event);
+    }
+    
+    // console.log(textClickedNutrientValueContext)
     
     // const onClickedNutrientValue =() =>{
     //     // setclickedNutrientValue(event === props.text);
@@ -31,14 +43,16 @@ function ItemToPurchase(props){
                 <figure>
                     <img alt={props.photo}/>
                 </figure>
-                <button
+                <input 
                     // className={`Nutributton ${props.clickedNutrition && 'Icon-LessItem-active'}`}
-                    onClick={props.onClickNutrition}
-                    value={textClickedNutrientValue}
-                    onMouseDown={onMouseDownNutritionValue}
-                >
-                    {props.nutritionfacts}
-                </button>
+                    onClick={handleClick}
+                    value={textClickedNutrientValueContext}
+
+                     onChange={onMouseDownNutritionValue}
+                    ///dont forget to remove the /
+                />
+                    {/* {props.nutritionfacts} */}
+                {/* </button> */}
                 <div className="Purchasebutton">
                     <span
                         className={`Icon Icon-LessItem ${props.added && 'Icon-LessItem-active'}`}

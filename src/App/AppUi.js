@@ -1,6 +1,6 @@
 import React from "react";
 import { ListContext } from "../ListContext";
-// import { FactContext } from "../FactContext";
+import { FactContext } from "../FactContext";
 import {ListCounter} from '../ListCounter';
 import {ListItemstoAdd} from '../ListItemstoAdd';
 import {ItemToPurchase} from '../ItemToPurchase';
@@ -72,22 +72,22 @@ localStorage.setItem('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient))
       setOpenModal,
       
     } = React.useContext(ListContext);
-    // const {
-    //   // textClickedNutrientValue,
-    //   // settexClickedNutrientValue,
-    //   clickedFactNutrientToPurchase,
-    //   loadingfactNutrient,
-    //   errorfactNutrient
-    // } = React.useContext(FactContext);
+    const {
+      // textClickedNutrientValue,
+      // settexClickedNutrientValue,
+      clickedFactNutrientToPurchase,
+      loadingfactNutrient,
+      errorfactNutrient
+    } = React.useContext(FactContext);
     return(
         <React.Fragment>
         <ListCounter
         />
         <ListFactToView>
-          {/* {errorfactNutrient&& <p>Estamos errando..</p>}
+           {errorfactNutrient&& <p>Estamos errando..</p>}
           {loadingfactNutrient  && <p>Estamos cargando..</p>}
-          {(!loadingfactNutrient && !clickedFactNutrientToPurchase.length) && <p>no estamos demorando mas en cargar la informacion</p>} */}
-        {defaultListNutrient.map(fact =>(
+          {(!loadingfactNutrient && !clickedFactNutrientToPurchase.length) && <p>no estamos demorando mas en cargar la informacion</p>} 
+        {clickedFactNutrientToPurchase.map(fact =>(
         <NutritionChards
           key={fact.idfactitem + fact.itemnutrientname}
           itemnutrientname={fact.itemnutrientname}
