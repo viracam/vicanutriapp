@@ -27,13 +27,23 @@ const FactContext = React.createContext();
 function FactProvider(props){
   const {
     ListfactNutrientItemChard: ListFactItemToPurchase,
-    // saveFactItem: saveFactFactNutrientItem,
+    //saveFactItem: saveFactFactNutrientItem,
     loadingfactNutrient,
     errorfactNutrient,
   }= useLocalStorageFacts('LISTFACTNUTRIENT_V1', [])
 
   /// ----Estados
-  const [textClickedNutrientValueContext, settexClickedNutrientValueContext] = React.useState('');
+  const [textClickedNutrientValueContext, settexClickedNutrientValueContext] = React.useState(props.text);
+
+      
+  const onMouseDownNutritionValue = (event) =>{
+      
+    settexClickedNutrientValueContext(event.target.value);
+   
+  console.log('Este es el textnutrientVALUEcONTEXT' + textClickedNutrientValueContext)
+
+
+}
 
   let clickedFactNutrientToPurchase = [];
     
@@ -60,6 +70,7 @@ function FactProvider(props){
       clickedFactNutrientToPurchase,
       textClickedNutrientValueContext,
       settexClickedNutrientValueContext,
+      onMouseDownNutritionValue,
       loadingfactNutrient,
       errorfactNutrient
     }}>
@@ -69,7 +80,7 @@ function FactProvider(props){
       textClickedNutrientValueContext
     }}>
     {props.children}
-    </ListContext.Provider> */}
+    // </ListContext.Provider> */}
 
     </React.Fragment>
   );
