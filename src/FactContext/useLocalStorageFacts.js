@@ -27,7 +27,7 @@ function useLocalStorageFacts( factItemName, initialFactValue){
         },3000);
       });
             ///save Facts
-        const saveFactFactNutrientItem = (newFactItem) =>{
+        const saveFactItem = (newFactItem) =>{
             try{
               const stringifyFactItem = JSON.stringify(newFactItem);
               localStorage.setItem(factItemName, stringifyFactItem);
@@ -38,7 +38,7 @@ function useLocalStorageFacts( factItemName, initialFactValue){
         }
         return{
             ListfactNutrientItemChard,
-            saveFactFactNutrientItem,
+            saveFactItem,
             loadingfactNutrient,
             errorfactNutrient
         }

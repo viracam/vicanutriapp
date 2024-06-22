@@ -1,0 +1,9 @@
+.VicaButtonAddFactItem{
+    position: fixed;
+    width: 100px;
+    height: 40px;
+    left: 1px;
+    bottom: 20px;
+    z-index: 2;
+    cursor: pointer;
+}

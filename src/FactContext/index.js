@@ -27,13 +27,14 @@ const FactContext = React.createContext();
 function FactProvider(props){
   const {
     ListfactNutrientItemChard: ListFactItemToPurchase,
-    //saveFactItem: saveFactFactNutrientItem,
+    saveFactItem: saveFactNutrientItem,
     loadingfactNutrient,
     errorfactNutrient,
   }= useLocalStorageFacts('LISTFACTNUTRIENT_V1', [])
 
   /// ----Estados
-  const [textClickedNutrientValueContext, settexClickedNutrientValueContext] = React.useState(props.text);
+  const [textClickedNutrientValueContext, settexClickedNutrientValueContext] = React.useState('');
+  const [openModalFact, setOpenModalFact] = React.useState(false)
 
       
   const onMouseDownNutritionValue = (event) =>{
@@ -61,9 +62,38 @@ function FactProvider(props){
     // saveFactFactNutrientItem(clickedFactNutrientToPurchase);
     // console.log(clickedFactNutrientToPurchase)
   }
+  const createFactToPurchase = (itemnutrientname, grams) =>{
+    
+    const newFactListItemToPurchase = [...ListFactItemToPurchase];
+    const idfactcounter = ListFactItemToPurchase.length + 1;
+    
+    
+    console.log('que es id coutner' + ListFactItemToPurchase.length);
+
+    
+  
+    
+    newFactListItemToPurchase.push({
+      idFactitem: idfactcounter,
+      itemnutrientname: itemnutrientname,
+      grams: grams,
+      totalcarbs: 100,
+      fiber: 30,
+      starch: 30,
+      totalsugar: 100,
+        fructose: 30,
+        galactose: 30,
+        glucose: 30,
+        lactose: 30,
+        sucrose: 30,
+        addedSugar: 30,
+  });
+    saveFactNutrientItem(newFactListItemToPurchase);
+
+  };
 
   // const clikedFactItemToPurchase = FactItemToPurchase.filter(fact => !!fact.added).length;
-  //     const totalListItemToPurchase = ListItemToPurchase.length;
+  //     const totalListItemToPurchase = ListFactItemToPurchase.length;
   return(
     <React.Fragment>
     <FactContext.Provider value={{
@@ -72,7 +102,10 @@ function FactProvider(props){
       settexClickedNutrientValueContext,
       onMouseDownNutritionValue,
       loadingfactNutrient,
-      errorfactNutrient
+      errorfactNutrient,
+      openModalFact,
+      setOpenModalFact,
+      createFactToPurchase
     }}>
       {props.children}
     </FactContext.Provider>

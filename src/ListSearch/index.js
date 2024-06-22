@@ -11,6 +11,7 @@ function ListSearch(){
     }
     return (
         <input
+            id="ListSearch"
             className="ListSearch"
             placeholder="Buscar"
             value={searchValue}
