@@ -1,0 +1,49 @@
+.Form-To-Add-Nutrition{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-form-background-color);
+    margin: var(--main-form-margin);
+    padding: var(--main-form-padding);
+    border-radius: var(--main-element-margin);
+    border-radius: var(--main-element-borderradius);
+}
+.Form-To-Add-Nutrition input{
+    border: var(--main-input-border);
+    border-radius: var(--main-element-borderradius);
+    padding-left: var(--secondary-input-padding-lr);
+    padding-right: var(--secondary-input-padding-lr);
+    padding-top: var(--secondary-input-padding-tb);
+    padding-bottom: var(--secondary-input-padding-tb);
+    width: 300px;
+}
+.Form-To-Add-Nutrition button.Form-button-Add{
+    background-color: var(--main-tomato-color);
+    color: white;
+    
+}
+.Form-To-Add-Nutrition button.Form-button-Add:hover{
+    background-color: var(--main-cherry-color);
+}
+.Form-To-Add-Nutrition button.Form-button-Cancel{
+    background-color: white;
+    color: var(--main-tomato-color);
+    font-weight: bold;
+    
+
+}
+.Form-To-Add-Nutrition button.Form-button-Cancel:hover{
+    background-color: rgb(222, 222, 222);
+}
+.Form-To-Add-Nutrition button.Form-button-Cancel, .Form-To-Add-Nutrition button.Form-button-Add{
+    font-size: var(--main-font-size);
+    border-radius: var(--main-element-borderradius);
+    justify-self: start;
+    border: none;
+    margin: 20px 0;
+    margin-right: 10px;
+    padding: 5px 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    height: 50px;
+
+}

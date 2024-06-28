@@ -1,0 +1,31 @@
+*{
+    font-size: 12px;
+}
+:root {
+    --main-font-size: 1.5em;
+    --item-font-size: 2em;
+    --regular-font-size: 1.2em;
+    --main-element-margin: 20px auto;
+    --main-input-padding-lr: 40px;
+    --main-input-pading-tb: 5px;
+    --main-input-border: solid 2px gray;
+    --main-input-display: block;
+    --main-input-width: 70%;
+    --main-input-height: 40px;
+    --main-input-borderradius: 50px;
+    --secondary-input-padding-lr: 20px;
+    --secondary-input-padding-tb: 10px;
+    --main-element-borderradius: 10px;
+    --main-cherry-color: #730217;
+    --main-tomato-color: #F20519;
+    --main-apple-color: #84BF04;
+    --main-celery-color: #467302;
+    --main-salmon-color: #F2994B;
+    --light-salmon-color: #f0e0d1;
+    --main-background-rgb: rgb(165,101,44);
+    --main-background-gradient: linear-gradient(6deg, rgba(165,101,44,1) 0%, rgba(242,153,75,1) 35%, rgba(240,224,209,1) 100%);
+    --main-form-background-color: white;
+    --main-form-margin: 20px;
+    --main-form-padding: 10px 20px;
+
+  }

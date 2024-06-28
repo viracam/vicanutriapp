@@ -1,5 +1,7 @@
 import React from "react";
 import { ListContext } from "../ListContext";
+import './css/ListForm.css'
+import '../App/Appvariables.css'
 
 function ListFrom(){
     const [newListValue, setNewListValue] = React.useState({
@@ -58,7 +60,9 @@ function ListFrom(){
     // }
 
     return(
-        <form onSubmit={onSubmit}>
+        <form
+            className="Form-To-Add-Nutrition"
+            onSubmit={onSubmit}>
             <label htmlFor="itemtext">Añade alimento</label>
             <input 
                 placeholder="Pera, cebolla, etc..."
@@ -76,16 +80,19 @@ function ListFrom(){
             ></input>
             <div>
                 <button
+                    className="Form-button-Add"
+                    type="submit"
+                >
+                    Añadir
+                </button>
+                <button
+                    className="Form-button-Cancel"
                     type="button"
                     onClick={onCancel}
                 >
                     Cancelar
                 </button>
-                <button
-                    type="submit"
-                >
-                    Añadir
-                </button>
+
             </div>
         </form>
     );

@@ -1,5 +1,6 @@
 import React from "react";
 import './css/listsearch.css'
+import '../App/Appvariables.css'
 import { ListContext } from "../ListContext";
 
 function ListSearch(){

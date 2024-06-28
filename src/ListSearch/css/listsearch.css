@@ -1,7 +1,15 @@
+
 .ListSearch{
-    margin: 0 auto;
-    width: 80%;
-    
-    background: beige;
-    border-radius: 10px;
+    margin: var(--main-element-margin);
+    font-size: var(--main-font-size);
+    display: var(--main-input-display);
+    width: var(--main-input-width);
+    height: var(--main-input-height);
+    background: white;
+    border-radius: var(--main-input-borderradius);
+    padding-top:  var(--main-input-padding-tb);
+    padding-left:  var(--main-input-padding-lr);
+    padding-bottom:  var(--main-input-padding-tb);
+    padding-right:  var(--main-input-padding-lr);
+    border: var(--main-input-border);
 }

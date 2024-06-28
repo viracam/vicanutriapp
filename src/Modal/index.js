@@ -1,5 +1,5 @@
 import {createPortal} from 'react-dom';
-import './ModalStyle.css'
+import './css/ModalStyle.css'
 
 
 

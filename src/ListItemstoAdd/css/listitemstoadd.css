@@ -1,13 +1,15 @@
 .ListItemstoAdd{
     width: 100%;
-    height: 100vh;
-    background: aqua;
+    background: var(--main-background-gradient);
+    padding: 10px 0;
 }
 
 .ListItemstoAdd div{
     width: 90%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-gap: 18px;
     grid-auto-rows: minmax(100px, auto);
+    margin: var(--main-element-margin);
+    font-size: var(--main-font-size);
 }

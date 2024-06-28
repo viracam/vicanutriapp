@@ -33,17 +33,42 @@ function ItemToPurchase(props){
     return (
         
             <article className="ItemToPurchase">
+
                 <span
                     className="Icon-Delete"
                     onClick={props.onDelete}
                 > x</span>
-                <p>{props.text}</p>
-                <p>COP ${props.price}</p>
                 <figure>
                     <img alt={props.photo}/>
                 </figure>
+
+                <p
+                    className="Item-Price"
+                >COP <b>{"$" + props.price}</b></p>
+                <p
+                    className="Item-Name"
+                >{props.text}</p>
+
+
+                <div className="Purchasebutton">
+                    <button
+                        className={`Icon Icon-LessItem ${props.added && 'Icon-LessItem-active'}`}
+                        onClick={props.onDeduct}
+                    >-</button>
+                    <p>
+                    {
+                        props.defaultNumberOfItemsAdded
+                    }
+                    </p>
+                    <button
+                        className={`Icon Icon-PlussItem ${props.added && 'Icon-PlussItem-active'}`}
+                        onClick={props.onAdded}
+            
+
+                    >+</button>
+                </div>
                 <button 
-                    // className={`Nutributton ${props.clickedNutrition && 'Icon-LessItem-active'}`}
+                    className={`Nutributton ${props.clickedNutrition && 'Icon-Nutrition-active'}`}
                     onClick={handleClick}
                     value={textClickedNutrientValue}
 
@@ -52,23 +77,6 @@ function ItemToPurchase(props){
                 >
                     {props.nutritionfacts}
                 </button>
-                <div className="Purchasebutton">
-                    <span
-                        className={`Icon Icon-LessItem ${props.added && 'Icon-LessItem-active'}`}
-                        onClick={props.onDeduct}
-                    >-</span>
-                    <p>
-                    {
-                        props.defaultNumberOfItemsAdded
-                    }
-                    </p>
-                    <span
-                        className={`Icon Icon-PlussItem ${props.added && 'Icon-PlussItem-active'}`}
-                        onClick={props.onAdded}
-            
-
-                    >+</span>
-                </div>
             </article>
 
         

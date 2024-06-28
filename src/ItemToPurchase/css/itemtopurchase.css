@@ -1,37 +1,77 @@
 .ItemToPurchase{
     background: white;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: var(--main-element-borderradius);
     display: flex;
     flex-direction: column;
+    text-align: center;
+    position: relative;
 }
 .ItemToPurchase p, .ItemToPurchase figure {
     display: flex;
     text-align: center;
     width: 100%;
-    flex-direction: row;
+    flex-direction: inherit;
+}
+.ItemToPurchase p.Item-Name{
+    font-size: var(--regular-font-size);
+    margin: 2px 0;
+
+}
+.ItemToPurchase p.Item-Price b{
+    font-size: var(--item-font-size);
+    font-weight: bolder;
 }
 
 .ItemToPurchase button{
-    background-color: brown;
+    
     border: none;
     padding: 5px 10px;
     color: white;
+    vertical-align: middle;
+    cursor: pointer;
+
 }
 .ItemToPurchase .Nutributton{
+    font-size: var(--main-font-size);
+    background-color: var(--main-apple-color);
     justify-self: start;
+    border-radius: var(--main-element-borderradius);
+}
+.ItemToPurchase .Icon-Nutrition-active{
+    
+    background-color: var(--main-celery-color);
 }
 .ItemToPurchase .Purchasebutton{
+    width: 100%;
+    height: 50px;
     justify-self: end;
 }
-.ItemToPurchase .Purchasebutton span{
+
+.ItemToPurchase .Purchasebutton button{
     display: block;
-    background-color: red;
-    border-radius: 3px;
+    background-color: var(--main-tomato-color);
+    border-radius: var(--main-element-borderradius);
     color: white;
     text-align: center;
+    height: 50px;
+    
 }
-.ItemToPurchase .Purchasebutton span.Icon-PlussItem-active{
-    background-color: blue;
+.ItemToPurchase span.Icon-Delete{
+    position: absolute;
+    margin: 15px 25px;
+    right: 1px;
+    top: 1px;
+    z-index: 1;
+    cursor: pointer;
+}
+.ItemToPurchase .Purchasebutton p{
+    display: block;
+    height: 50px;
+
+
+}
+.ItemToPurchase .Purchasebutton button.Icon-PlussItem-active{
+    background-color: var(--main-cherry-color);
 
 }
