@@ -1,8 +1,16 @@
 import React from "react";
-import './css/sellerbuttonadditem.css'
+import './css/sellerbuttonadditem.css';
+import { FactContext } from "../FactContext";
+
 
 function SellerButtonAddItemToPurchase(props){
+    const{
+    
+        setOpenModalFact
+    
+    } = React.useContext(FactContext);
     const onClickButton =() => {
+        setOpenModalFact(false);
         props.setOpenModal(prevState => !prevState);
     }
     return (
@@ -10,7 +18,7 @@ function SellerButtonAddItemToPurchase(props){
             className="SellerButtonAddItemToPurchase"
             onClick={onClickButton}
         >
-            Add Food
+            Comida
         </button>
     );
 }

@@ -14,53 +14,6 @@ import { FactForm } from "../FactForm";
 import { ListFactToView } from "../ListFactToView";
 
 
-// DATA FACT BASE
-// const defaultListNutrient = [
-//   {idfactitem: 0, itemnutrientname: 'Zanahoria',
-//     grams : 10,
-//     totalcarbs: 100,
-//     fiber: 30,
-//     starch: 30, 
-//     totalsugar: 100,
-//       fructose: 30,
-//       galactose: 30,
-//       glucose: 30,
-//       lactose: 30,
-//       sucrose: 30,
-//       addedSugar: 30
-//   },
-//   {idfactitem: 1, itemnutrientname: 'Banano',
-//     grams : 10,
-//     totalcarbs: 100,
-//     fiber: 30,
-//     starch: 30, 
-//     totalsugar: 100,
-//       fructose: 30,
-//       galactose: 30,
-//       glucose: 30,
-//       lactose: 30,
-//       sucrose: 30,
-//       addedSugar: 30
-//   },
-//   {idFactitem: 3, itemnutrientname: 'Platano',
-//     grams : 10,
-//     totalcarbs: 100,
-//     fiber: 30,
-//     starch: 30, 
-//     totalsugar: 100,
-//       fructose: 30,
-//       galactose: 30,
-//       glucose: 30,
-//       lactose: 30,
-//       sucrose: 30,
-//       addedSugar: 30
-//   }
-
-// ];
-// localStorage.setItem('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient));
-
-
-
  function AppUi(){
     const {
       error,
@@ -130,6 +83,9 @@ import { ListFactToView } from "../ListFactToView";
               text={item.itemtext}
               photo={item.photo}
               price={item.price}
+              measureunit={item.measureunit}
+              measuretype={item.measuretype}
+              itemcategory={item.itemcategory}
               nutritionfacts={item.nutritionfacts}
               clickedNutrition={item.clickedNutrition}
               added={item.added}

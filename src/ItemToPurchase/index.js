@@ -38,13 +38,17 @@ function ItemToPurchase(props){
                     className="Icon-Delete"
                     onClick={props.onDelete}
                 > x</span>
+                <p
+                    className="Item-Category"
+                    
+                ><span>{props.itemcategory} </span></p>
                 <figure>
                     <img alt={props.photo}/>
                 </figure>
 
                 <p
                     className="Item-Price"
-                >COP <b>{"$" + props.price}</b></p>
+                >COP <b>{"$" + props.price}</b><span>{props.measureunit + " " + props.measuretype}</span></p>
                 <p
                     className="Item-Name"
                 >{props.text}</p>
@@ -55,7 +59,9 @@ function ItemToPurchase(props){
                         className={`Icon Icon-LessItem ${props.added && 'Icon-LessItem-active'}`}
                         onClick={props.onDeduct}
                     >-</button>
-                    <p>
+                    <p 
+                        className="Quantity-Items-Added"
+                    >
                     {
                         props.defaultNumberOfItemsAdded
                     }

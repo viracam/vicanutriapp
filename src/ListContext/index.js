@@ -109,7 +109,7 @@ function ListProvider(props){
         }
        
       }
-      const createItemToPurchase = (itemtext, price) =>{
+      const createItemToPurchase = (itemtext, price, measureunit, measuretype, itemimage, itemcategory) =>{
         // texto
         // const ListItemToPurchaseIndex = ListItemToPurchase.findIndex(item => item.itemtext === text );
         const newListItemToPurchase = [...ListItemToPurchase];
@@ -137,7 +137,10 @@ function ListProvider(props){
           iditem: idcounter,
           itemtext: itemtext,
           price: price,
-          photo: 'La foto',
+          measureunit: measureunit,
+          measuretype: measuretype,
+          photo: itemimage,
+          itemcategory: itemcategory,
           nutritionfacts: 'ver nutricion',
           clickedNutrition : false,
           added : false,

@@ -4,7 +4,7 @@
     background-color: var(--main-form-background-color);
     margin: var(--main-form-margin);
     padding: var(--main-form-padding);
-    border-radius: var(--main-element-margin);
+    /* border-radius: var(--main-element-margin); */
     border-radius: var(--main-element-borderradius);
 }
 .Form-To-Add-Nutrition input{
@@ -15,6 +15,65 @@
     padding-top: var(--secondary-input-padding-tb);
     padding-bottom: var(--secondary-input-padding-tb);
     width: 300px;
+}
+.Form-To-Add-Nutrition div.Measure-Inputs-Section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.Form-To-Add-Nutrition input.Measure-Inputs-Unit{
+    width: 40%;
+}
+.Form-To-Add-Nutrition select.Measure-Inputs-Type, .Form-To-Add-Nutrition select.Category-Itemn-Input-Type{
+
+    border: var(--main-input-border);
+    border-radius: var(--main-element-borderradius);
+    padding-left: var(--secondary-input-padding-lr);
+    padding-right: var(--secondary-input-padding-lr);
+    padding-top: var(--secondary-input-padding-tb);
+    padding-bottom: var(--secondary-input-padding-tb);
+}
+.Form-To-Add-Nutrition select.Measure-Inputs-Type{
+    width: 40%;
+    background-color: var(--main-tomato-color);
+    color: white;
+}
+.Form-To-Add-Nutrition select.Category-Itemn-Input-Type{
+    color: gray;
+}
+
+.Form-To-Add-Nutrition select.Measure-Inputs-Type option, .Form-To-Add-Nutrition select.Category-Itemn-Input-Type option{
+    background-color: white;
+    color: gray;
+}
+
+.Form-To-Add-Nutrition input.Input-Upload-Image{
+    position: relative;
+    color: gray;
+
+}
+.Form-To-Add-Nutrition input::file-selector-button{
+    position: absolute;
+    padding-left: var(--secondary-input-padding-lr);
+    padding-right: var(--secondary-input-padding-lr);
+    padding-top: var(--secondary-input-padding-tb);
+    padding-bottom: var(--secondary-input-padding-tb);
+    background-color: var(--main-tomato-color);
+    color: white;
+    border: none;
+    right: -4px;
+    top: 0;
+}
+.Form-To-Add-Nutrition h2{
+    font-size: var(--item-font-size);
+    color: black;
+    text-align: center;
+}
+.Form-To-Add-Nutrition label {
+    font-size: var(--regular-font-size);
+    color: rgb(47, 46, 46);
+    font-weight: bold;
+    margin: 15px 5px 5px 5px;
 }
 .Form-To-Add-Nutrition button.Form-button-Add{
     background-color: var(--main-tomato-color);

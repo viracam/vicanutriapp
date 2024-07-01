@@ -18,6 +18,25 @@
     margin: 2px 0;
 
 }
+.ItemToPurchase p.Item-Category{
+    position: absolute;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    
+}
+.ItemToPurchase p.Item-Category span{
+    background-color: var(--main-celery-color);
+    color: white;
+    display: block;
+    min-width: 90px;
+    margin: 0 auto;
+    padding: 5px 5px;
+    font-weight: bold;
+    border-end-end-radius: 20px;
+    border-end-start-radius: 20px;
+    text-transform: capitalize;
+}
 .ItemToPurchase p.Item-Price b{
     font-size: var(--item-font-size);
     font-weight: bolder;
@@ -37,6 +56,7 @@
     background-color: var(--main-apple-color);
     justify-self: start;
     border-radius: var(--main-element-borderradius);
+    text-transform: capitalize;
 }
 .ItemToPurchase .Icon-Nutrition-active{
     
@@ -55,7 +75,13 @@
     color: white;
     text-align: center;
     height: 50px;
+    font-size: var(--item-font-size);
     
+}
+.ItemToPurchase p.Quantity-Items-Added{
+    font-size: var(--item-font-size);
+    padding: 0;
+    margin: 0;
 }
 .ItemToPurchase span.Icon-Delete{
     position: absolute;
