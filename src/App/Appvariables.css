@@ -4,6 +4,8 @@
 :root {
     --main-font-size: 1.5em;
     --item-font-size: 2em;
+    --button-font-size: 1.6em;
+    --button-icon-size: 2em;
     --regular-font-size: 1.2em;
     --main-element-margin: 20px auto;
     --main-input-padding-lr: 40px;

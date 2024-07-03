@@ -18,7 +18,14 @@ function VicaButtonAddFactItem(props){
             className="VicaButtonAddFactItem"
             onClick={onClickVicaButtonAddFactItem}
         >
-            Nutricion
+            <span>
+                <b
+                    className="Button-Icon-Add-Nutrition"
+                >+</b>
+                <b
+                    className="Button-Text-Add-Nutrition"
+                >Nutricion</b>
+            </span>
         </button>
     );
 }

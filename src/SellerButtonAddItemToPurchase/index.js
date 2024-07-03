@@ -18,7 +18,13 @@ function SellerButtonAddItemToPurchase(props){
             className="SellerButtonAddItemToPurchase"
             onClick={onClickButton}
         >
-            Comida
+            <span>
+                <b
+                    className="Button-Text-Add"
+                >Comida</b>
+                <b
+                    className="Button-Icon-Add"
+                >+</b></span>
         </button>
     );
 }
