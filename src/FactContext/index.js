@@ -3,23 +3,7 @@ import { useLocalStorageFacts } from './useLocalStorageFacts';
 // import { itemtopurchase} from '../ItemToPurchase';
 // import { ListContext } from '../ListContext';
 
-// const defaultListNutrient = [
-//     {idFactitem: 0, itemnutrientname: 'Zanahoria',
-//       grams : 10,
-//       totalcarbs: 100,
-//       fiber: 30,
-//       starch: 30, 
-//       totalsugar: 100,
-//         fructose: 30,
-//         galactose: 30,
-//         glucose: 30,
-//         lactose: 30,
-//         sucrose: 30,
-//         addedSugar: 30
-//     }
-  
-//   ];
-//   localStorage.setItem('LISTFACTNUTRIENT_V1', JSON.stringify(defaultListNutrient));
+
 
 // Context fact----
 const FactContext = React.createContext();
@@ -62,7 +46,64 @@ function FactProvider(props){
     // saveFactFactNutrientItem(clickedFactNutrientToPurchase);
     // console.log(clickedFactNutrientToPurchase)
   }
-  const createFactToPurchase = (itemnutrientname, grams) =>{
+  const createFactToPurchase = (
+                                itemnutrientname, grams,
+                                            //---carbs
+                                            totalcarbs,
+                                            fiber,
+                                            starch, 
+                                            totalsugar,
+                                                fructose,
+                                                galactose,
+                                                glucose,
+                                                lactose,
+                                                sucrose,
+                                            addedsugar,
+                                            netcarbs,
+                                            //---lipids
+                                            fat,
+                                                monounsaturated,
+                                                polyunsaturated,
+                                                    omega3,
+                                                    omega6,
+                                                saturated,
+                                            //---proteins
+                                            protein,
+                                                cystine,
+                                                histidine,
+                                                isoleucine,
+                                                leucine,
+                                                lysine,
+                                                methionine,
+                                                phenylalanine,
+                                                threonine,
+                                                tryptophan,
+                                                tyrosine,
+                                                valine,
+                                            //---vitamins
+                                            b1thiamine,
+                                            b2riboflavin,
+                                            b3niacin,
+                                            b5pantothenicacid,
+                                            b6pyridoxine,
+                                            b12cobalamin,
+                                            folate,
+                                            vitamina,
+                                            vitaminc,
+                                            vitamine,
+                                            vitamink,
+                                            //------minerals
+                                            calcium,
+                                            copper,
+                                            iron,
+                                            magnesium,
+                                            manganese,
+                                            phosphorus,
+                                            potassium,
+                                            selenium,
+                                            sodium,
+                                            zinc
+      ) =>{
     
     const newFactListItemToPurchase = [...ListFactItemToPurchase];
     const idfactcounter = ListFactItemToPurchase.length + 1;
@@ -77,16 +118,62 @@ function FactProvider(props){
       idFactitem: idfactcounter,
       itemnutrientname: itemnutrientname,
       grams: grams,
-      totalcarbs: 100,
-      fiber: 30,
-      starch: 30,
-      totalsugar: 100,
-        fructose: 30,
-        galactose: 30,
-        glucose: 30,
-        lactose: 30,
-        sucrose: 30,
-        addedSugar: 30,
+        //---carbs
+        totalcarbs: totalcarbs,
+        fiber: fiber,
+        starch: starch,
+        totalsugar: totalsugar,
+          fructose: fructose,
+          galactose: galactose,
+          glucose: glucose,
+          lactose: lactose,
+          sucrose: sucrose,
+        addedsugar: addedsugar,
+        netcarbs: netcarbs,
+        //---lipids
+        fat : fat,
+        monounsaturated : monounsaturated,
+        polyunsaturated : polyunsaturated,
+            omega3 : omega3,
+            omega6 : omega6,
+        saturated : saturated,
+        //---proteins
+        protein : protein,
+            cystine : cystine,
+            histidine : histidine,
+            isoleucine : isoleucine,
+            leucine : leucine,
+            lysine : lysine,
+            methionine : methionine,
+            phenylalanine : phenylalanine,
+            threonine : threonine,
+            tryptophan : tryptophan,
+            tyrosine : tyrosine,
+            valine : valine,
+        //---vitamins
+        b1thiamine : b1thiamine,
+        b2riboflavin : b2riboflavin,
+        b3niacin : b3niacin,
+        b5pantothenicacid : b5pantothenicacid,
+        b6pyridoxine : b6pyridoxine,
+        b12cobalamin : b12cobalamin,
+        folate : folate,
+        vitamina : vitamina,
+        vitaminc : vitaminc,
+        vitamine : vitamine,
+        vitamink : vitamink,
+        //------minerals
+        calcium : calcium,
+        copper : copper,
+        iron : iron,
+        magnesium : magnesium,
+        manganese : manganese,
+        phosphorus : phosphorus,
+        potassium : potassium,
+        selenium : selenium,
+        sodium : sodium,
+        zinc : zinc
+      
   });
     saveFactNutrientItem(newFactListItemToPurchase);
 

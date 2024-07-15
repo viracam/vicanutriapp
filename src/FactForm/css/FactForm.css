@@ -1,0 +1,127 @@
+.Form-To-Add--Fact-Nutrition{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-form-background-color);
+    margin: var(--main-form-margin);
+    padding: var(--main-form-padding);
+    /* border-radius: var(--main-element-margin); */
+    border-radius: var(--main-element-borderradius);
+    overflow-y: scroll;
+    /* width: 384px; */
+    height: 565px;
+}
+.Big-Fact-Form-Container{
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 18px;
+    grid-auto-rows: minmax(100px, auto);
+    font-size: var(--main-font-size);
+}
+
+.Form-Minerals, .Form-Vitamins, .Form-Protein, .Form-Lipids, .Form-Carbohidrates, .Form-Vitamins{
+    display: flex;
+    flex-direction: column;
+}
+.Inner-Form-Sugars, .Inner-Form-Polyunsaturated, .Inner-Form-Proteins-essentials, .Inner-Form-Vitamins, .Inner-Form-Minerals{
+    padding-left: 20px;
+}
+.Inner-Form-Sugars h3, .Inner-Form-Polyunsaturated h3{
+    color: gray;
+    padding-left: 20px;
+}
+
+.Form-To-Add--Fact-Nutrition input{
+    border: var(--main-input-border);
+    border-radius: var(--main-element-borderradius);
+    padding-left: var(--secondary-input-padding-lr);
+    padding-right: var(--secondary-input-padding-lr);
+    padding-top: var(--secondary-input-padding-tb);
+    padding-bottom: var(--secondary-input-padding-tb);
+    width: 180px;
+}
+.Inner-Form-Sugars input, .Inner-Form-Polyunsaturated input, .Inner-Form-Proteins-essentials input, .Inner-Form-Vitamins input, .Inner-Form-Minerals input{
+    width: 160px;
+}
+
+
+/* .Form-To-Add--Fact-Nutrition select.Measure-Inputs-Type, .Form-To-Add--Fact-Nutrition select.Category-Itemn-Input-Type{
+
+    border: var(--main-input-border);
+    border-radius: var(--main-element-borderradius);
+    padding-left: var(--secondary-input-padding-lr);
+    padding-right: var(--secondary-input-padding-lr);
+    padding-top: var(--secondary-input-padding-tb);
+    padding-bottom: var(--secondary-input-padding-tb);
+}
+.Form-To-Add--Fact-Nutrition select.Measure-Inputs-Type{
+    width: 40%;
+    background-color: var(--main-tomato-color);
+    color: white;
+}
+.Form-To-Add--Fact-Nutrition select.Category-Itemn-Input-Type{
+    color: gray;
+}
+
+.Form-To-Add--Fact-Nutrition select.Measure-Inputs-Type option, .Form-To-Add--Fact-Nutrition select.Category-Itemn-Input-Type option{
+    background-color: white;
+    color: gray;
+}
+
+
+.Form-To-Add--Fact-Nutrition input::file-selector-button{
+    position: absolute;
+    padding-left: var(--secondary-input-padding-lr);
+    padding-right: var(--secondary-input-padding-lr);
+    padding-top: var(--secondary-input-padding-tb);
+    padding-bottom: var(--secondary-input-padding-tb);
+    background-color: var(--main-tomato-color);
+    color: white;
+    border: none;
+    right: -4px;
+    top: 0;
+} */
+.Form-To-Add--Fact-Nutrition h2{
+    font-size: var(--item-font-size);
+    color: black;
+    text-align: center;
+}
+.Form-To-Add--Fact-Nutrition label {
+    display: block;
+    font-size: var(--regular-font-size);
+    color: rgb(47, 46, 46);
+    font-weight: bold;
+    margin: 15px 5px 5px 5px;
+    
+}
+.Form-To-Add--Fact-Nutrition button.Form-button-Add-Fact{
+    background-color: var(--main-tomato-color);
+    color: white;
+    
+}
+.Form-To-Add--Fact-Nutrition button.Form-button-Add-Fact:hover{
+    background-color: var(--main-cherry-color);
+}
+.Form-To-Add--Fact-Nutrition button.Form-button-Cancel-Fact{
+    background-color: white;
+    color: var(--main-tomato-color);
+    font-weight: bold;
+    
+
+}
+.Form-To-Add--Fact-Nutrition button.Form-button-Cancel-Fact:hover{
+    background-color: rgb(222, 222, 222);
+}
+.Form-To-Add--Fact-Nutrition button.Form-button-Cancel-Fact, .Form-To-Add--Fact-Nutrition button.Form-button-Add-Fact{
+    font-size: var(--main-font-size);
+    border-radius: var(--main-element-borderradius);
+    justify-self: start;
+    border: none;
+    margin: 20px 0;
+    margin-right: 10px;
+    padding: 5px 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    height: 50px;
+
+}

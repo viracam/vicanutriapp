@@ -29,5 +29,11 @@
     --main-form-background-color: white;
     --main-form-margin: 20px;
     --main-form-padding: 10px 20px;
+    --item-percentage-protein: 125;
+    --item-space-percenta-protein: calc(377 - var(--item-percentage-protein));
+    --item-percentage-fat: 125;
+    --item-space-percenta-fat: calc(377 - var(--item-percentage-fat));
+    --item-percentage-carbs: 125;
+    --item-space-percenta-carbs: calc(377 - var(--item-percentage-carbs));
 
   }

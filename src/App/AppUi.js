@@ -49,16 +49,62 @@ import { ListFactToView } from "../ListFactToView";
           key={fact.idfactitem + fact.itemnutrientname}
           itemnutrientname={fact.itemnutrientname}
           grams={fact.grams}
-          totalcarbs={fact.totalcarbs}
-          fiber={fact.fiber}
-          starch={fact.starch} 
-          totalsugar={fact.totalsugar}
-            fructose={fact.fructose}
-            galactose={fact.galactose}
-            glucose={fact.glucose}
-            lactose={fact.lactose}
-            sucrose={fact.sucrose}
-            addedSugar={fact.addedSugar}
+            //---carbs
+            totalcarbs={fact.totalcarbs}
+            fiber={fact.fiber}
+            starch={fact.starch} 
+            totalsugar={fact.totalsugar}
+              fructose={fact.fructose}
+              galactose={fact.galactose}
+              glucose={fact.glucose}
+              lactose={fact.lactose}
+              sucrose={fact.sucrose}
+            addedsugar={fact.addedsugar}
+            netcarbs={fact.netcarbs}
+            //---lipids
+            fat={fact.fat}
+            monounsaturated={fact.monounsaturated}
+            polyunsaturated={fact.polyunsaturated}
+                omega3={fact.omega3}
+                omega6={fact.omega6}
+            saturated={fact.saturated}
+            //---proteins
+            protein={fact.protein}
+                cystine={fact.cystine}
+                histidine={fact.histidine}
+                isoleucine={fact.isoleucine}
+                leucine={fact.leucine}
+                lysine={fact.lysine}
+                methionine={fact.methionine}
+                phenylalanine={fact.phenylalanine}
+                threonine={fact.threonine}
+                tryptophan={fact.tryptophan}
+                tyrosine={fact.tyrosine}
+                valine={fact.valine}
+            //---vitamins
+            b1thiamine={fact.b1thiamine}
+            b2riboflavin={fact.b2riboflavin}
+            b3niacin={fact.b3niacin}
+            b5pantothenicacid={fact.b5pantothenicacid}
+            b6pyridoxine={fact.b6pyridoxine}
+            b12cobalamin={fact.b12cobalamin}
+            folate={fact.folate}
+            vitamina={fact.vitamina}
+            vitaminc={fact.vitaminc}
+            vitamine={fact.vitamine}
+            vitamink={fact.vitamink}
+            //------minerals
+            calcium={fact.calcium}
+            copper={fact.copper}
+            iron={fact.iron}
+            magnesium={fact.magnesium}
+            manganese={fact.manganese}
+            phosphorus={fact.phosphorus}
+            potassium={fact.potassium}
+            selenium={fact.selenium}
+            sodium={fact.sodium}
+            zinc={fact.zinc}            
+          
 
         />
           ))}
