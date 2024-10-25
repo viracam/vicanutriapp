@@ -2,6 +2,9 @@ import React from "react";
 // import { FactContext } from "../FactContext";
 import '../App/Appvariables.css';
 import './css/nutrientBarComponentStyles.css';
+import {ProteinChardIcon} from "../Icons/ProteinChardIcon"
+import {FatChardIcon} from "../Icons/FatChardIcon"
+import {CarbChardIcon} from "../Icons/CarbChardIcon"
 
 
 
@@ -73,61 +76,92 @@ function NutritionChards({
             <div
               className="Fact-Item-identifier-container Sub-container-Macro"
             >
-              
-              
-              <p>{itemnutrientname}</p>
-              <p>{grams} <b>gramos</b></p>
               <div
                 className="Item-Graph-Nutrition-kilo-Calories"
               >
-                <p>aqui van los porcentjas
-                </p>
+                <h2> Total de Kilo Calorias</h2>
                 <svg
                   className="Graph-Circle"
                   
                 >
                   <circle
+                    
                     r= "60"
                     cx= "50%"
                     cy= "50%"
-                    pathLength={377}
+                    pathLength={100}
 
                   ></circle>
                   <circle
+                    className="Item-Protien-Circle-Graph"
                     style={{
-                      strokeDasharray: 50 + " 377"
+                      strokeDasharray: protein + " 100"
                     }}
-                    r= "60"
+                    r= "70"
                     cx= "50%"
                     cy= "50%"
-                    pathLength={377}
+                    pathLength={100}
 
                   ></circle>
                   <circle 
+                    className="Item-Fat-Circle-Graph"
                     style={{
-                      strokeDasharray: 30 + " 377"
+                      strokeDasharray: fat + " 100"
                     }}
                     r= "60"
                     cx= "50%"
                     cy= "50%"
-                    pathLength={377}
+                    pathLength={100}
 
                   ></circle>
                   <circle
+                    className="Item-Carb-Circle-Graph"
                     style={{
-                      strokeDasharray: 70 + " 377"
+                      strokeDasharray: totalcarbs + " 100"
                     }}
-                    r= "60"
+                    r= "50"
                     cx= "50%"
                     cy= "50%"
-                    pathLength={377}
+                    pathLength={100}
 
                   ></circle>
                   
                   
                 </svg>
               </div>
-              <h2> Total de Kilo Calorias</h2>
+              
+              <div 
+                className="data-nutrients"
+              >
+                <p>{itemnutrientname}</p>
+                <p>{grams} <b>gramos</b></p>
+                {/* //---data per nutient */}
+                <ul>
+                  <li>
+                    <h4>Proteina</h4>
+                    <div className="Convention Protein">
+                      <ProteinChardIcon/>
+                    </div>
+                    <p>{protein} gm </p>
+                  </li>
+                  <li>
+                    <h4>Grasas</h4>
+                    <span className="Convention Fat">
+                      <FatChardIcon/>
+                    </span>
+                    <p>{fat} gm </p>
+                  </li>
+                  <li>
+                    <h4>Carbohidratos</h4>
+                    <span className="Convention Carb">
+                      <CarbChardIcon/>
+                    </span>
+                    <p>{totalcarbs} gm </p>
+                  </li>
+                </ul>
+              </div>
+              
+              
             </div>
             {/*-------- fact carbs chard----- */}
             <div

@@ -1,6 +1,10 @@
 import React from "react";
 import './css/itemtopurchase.css'
 import { FactContext } from "../FactContext";
+ import {DeleteItemIcon} from "../Icons/DeleteItemIcon"
+import {DeductItemIcon} from "../Icons/DeductItemIcon"
+import {AddItemIcon} from "../Icons/AddItemIcon"
+import {NutritionIcon} from "../Icons/NutritionIcon"
 
 
 function ItemToPurchase(props){
@@ -33,11 +37,11 @@ function ItemToPurchase(props){
     return (
         
             <article className="ItemToPurchase">
-
-                <span
-                    className="Icon-Delete"
+                
+                <div
+                    className="Container-Icon-Delete"
                     onClick={props.onDelete}
-                > x</span>
+                > <DeleteItemIcon/></div>
                 <p
                     className="Item-Category"
                     
@@ -58,7 +62,9 @@ function ItemToPurchase(props){
                     <button
                         className={`Icon Icon-LessItem ${props.added && 'Icon-LessItem-active'}`}
                         onClick={props.onDeduct}
-                    >-</button>
+                    >
+                        <DeductItemIcon/>
+                    </button>
                     <p 
                         className="Quantity-Items-Added"
                     >
@@ -71,7 +77,9 @@ function ItemToPurchase(props){
                         onClick={props.onAdded}
             
 
-                    >+</button>
+                    >
+                        <AddItemIcon/>
+                    </button>
                 </div>
                 <button 
                     className={`Nutributton ${props.clickedNutrition && 'Icon-Nutrition-active'}`}
@@ -81,6 +89,7 @@ function ItemToPurchase(props){
                     onChange={onMouseDownNutritionValue}
                     ///dont forget to remove the /
                 >
+                    <NutritionIcon/>
                     {props.nutritionfacts}
                 </button>
             </article>

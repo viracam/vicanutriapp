@@ -26,35 +26,68 @@
 }
 .Sub-container-Macro svg.Graph-Circle circle:nth-child(1){
     stroke: rgb(220, 218, 218);
-    stroke-dasharray: 377 0;
+    stroke-dasharray: 100 0;
     z-index: -3;
     
 }
-.Sub-container-Macro svg.Graph-Circle circle:nth-child(2){
+.Sub-container-Macro svg.Graph-Circle circle.Item-Protien-Circle-Graph{
     stroke: blue;
+    stroke-width: 10px;
     stroke-dasharray: var(--item-percentage-protein) var(--item-space-percenta-protein);
     transform: rotate(-180deg);
 
 }
-.Sub-container-Macro svg.Graph-Circle circle:nth-child(3){
+.Sub-container-Macro svg.Graph-Circle circle.Item-Fat-Circle-Graph{
     stroke: red;
+    stroke-width: 10px;
     stroke-dasharray: var(--item-percentage-fat) var(--item-space-percenta-fat);
-    transform: rotate(-60deg);
+    transform: rotate(-180deg);
     transform-origin: center;
 
 }
-.Sub-container-Macro svg.Graph-Circle circle:nth-child(4){
+.Sub-container-Macro svg.Graph-Circle circle.Item-Carb-Circle-Graph{
     stroke: green;
+    stroke-width: 10px;
     stroke-dasharray: var(--item-percentage-carbs) var(--item-space-percenta-carbs);
-    transform: rotate(60deg);
+    transform: rotate(-180deg);
     
 
 }
 
 .Fact-Item-identifier-container{
-    width: 200px;
+    display: flex;
+    flex-direction: row;
+}
+.data-nutrients li{
+    display: flex;
+    vertical-align: middle;
+}
+.Convention{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+.Protein{
+    background-color: blue;
+}
+.Protein .Icon-Svg, .Fat .Icon-Svg, .Carb .Icon-Svg{
+    width: 30px;
+    height: 30px;
+    transform: rotate(180deg);
+    margin: 1px;
+}
+.Protein .Icon-Svg g#g8:nth-child(1), .Fat .Icon-Svg g#g8:nth-child(1), .Carb .Icon-Svg g#g8:nth-child(1){
+    transform: scale(0.2) translate(-30px, -30px);
+    transform-origin: center;
 }
 
+.Fat{
+    background-color: red;
+}
+.Carb{
+    background-color: green;
+}
 .conteinerNutrientBarP{
     width: 200px;
     height: 10px;

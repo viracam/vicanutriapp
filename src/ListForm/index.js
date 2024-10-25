@@ -83,9 +83,12 @@ function ListFrom(){
 
                 >   
                     <option value="" selected>Elige la Categoria</option>
+                    <option value="Dulce" >Dulce</option>
                     <option value="Frutas">Frutas</option>
                     <option value="Verduras" >Verduras</option>
                     <option value="Legumbre">Legumbres</option>
+                    <option value="Tuberculos" >Tubérculos</option>
+                    <option value="Cereales" >Cereales</option>
                     <option value="Carnes">Carnes</option>
                 </select>
             <label htmlFor="itemtext">Añade alimento</label>

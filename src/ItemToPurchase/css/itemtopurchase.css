@@ -83,14 +83,52 @@
     padding: 0;
     margin: 0;
 }
-.ItemToPurchase span.Icon-Delete{
+.ItemToPurchase div.Container-Icon-Delete{
+    display: block;
     position: absolute;
     margin: 15px 25px;
+    right: 1px;
+    top: 1px;
+    width: 25px;
+    z-index: 1;
+    cursor: pointer;
+}
+.ItemToPurchase span.Icon-Delete{
+    
     right: 1px;
     top: 1px;
     z-index: 1;
     cursor: pointer;
 }
+
+.ItemToPurchase .Icon-Svg{
+    width: 24px;
+    height: 24px;
+}
+.ItemToPurchase .Icon-Svg path{
+    transform: scale(0.3);
+}
+.Icon-Nutrition{
+    margin-right: 20px;
+}
+.Icon-Nutrition .Icon-Svg{
+    width: 20px;
+    height: 20px;
+    transform: translateY(5px);
+}
+.Icon-Nutrition .Icon-Svg path{
+    transform: scale(0.25);
+}
+.ItemToPurchase .Icon-Nutrition .Icon-Svg g:nth-child(1){
+    transform: translate(1px, 6px) rotate(-45deg);
+}
+.ItemToPurchase .Icon-Nutrition .Icon-Svg g:nth-child(2){
+    transform: translate(6px, 4px) rotate(-45deg);
+}
+.ItemToPurchase .Icon-Deduct .Icon-Svg g{
+    transform: translate(6px, 10px) rotate(90deg);
+}
+
 .ItemToPurchase .Purchasebutton p{
     display: block;
     height: 50px;
